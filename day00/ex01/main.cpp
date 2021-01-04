@@ -28,7 +28,7 @@ int main()
 				amount++;
 			}
 			else
-				std::cout << "\x1b[1;31mPhonebook is full\x1b[0m" << std::endl;
+				std::cout << "\x1b[31mPhonebook is full\x1b[0m" << std::endl;
 		}
 		else if ("SEARCH" == command)
 		{
@@ -47,7 +47,7 @@ int main()
 				do
 				{
 					if (tmp <= 0 || tmp > amount)
-						std::cout << "\x1b[1;31mWrong index\x1b[0m" << std::endl;
+						std::cout << "\x1b[31mWrong index\x1b[0m" << std::endl;
 					std::cin.clear();
     				std::cin.ignore(256,'\n');
 					std::cout << "\x1b[1;34mEnter id: \x1b[0m";
@@ -74,12 +74,12 @@ int main()
 				// return (0);
 			}
 			else
-				std::cout << "\x1b[1;31mPhonebook is empty\x1b[0m" << std::endl;
+				std::cout << "\x1b[31mPhonebook is empty\x1b[0m" << std::endl;
 		}
 		else if ("EXIT" == command)
 			return (0);
 		else
-			std::cout << "\x1b[1;31mThere is no such command\x1b[0m" << std::endl;
+			std::cout << "\x1b[31mThere is no such command\x1b[0m" << std::endl;
 	}
 	return (0);
 }
