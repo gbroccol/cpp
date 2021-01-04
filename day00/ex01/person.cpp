@@ -12,8 +12,7 @@ Person::~Person (void) {
 void Person::add_person (int set_id) {
 	// std::cout << "Add person\n";
 	this->id = set_id;
-	std::cout << "Your id is " << this->id << std::endl;
-
+	// std::cout << "Your id is " << this->id << std::endl;
 
 	std::cout << "First name: ";
 	std::cin >> this->first_name;
@@ -41,17 +40,40 @@ void Person::add_person (int set_id) {
 	return ;
 }
 
+// int r=—25;
+// cout.setf(ios::right);
+// cout.width(15);
+// cout << «r=» << r << endl;
+
 void Person::search_short (void) {
-	std::cout << "|         " << "0";
-	std::cout << "|" << this->first_name;
-	std::cout << "|" << this->last_name;
-	std::cout << "|" << this->nickname;
-	std::cout << "|" << std::endl;
-	std::cout << "|-------------------------------------------|" << std::endl;
+
+	// std::cout.setf(std::ios::right);
+	// std::cout.width(10);
+
+	std::cout << "\x1b[32m|         \x1b[0m" << this->id + 1;
+
+	
+	std::cout << "\x1b[32m|\x1b[0m" << this->first_name;
+	std::cout << "\x1b[32m|\x1b[0m" << this->last_name;
+	std::cout << "\x1b[32m|\x1b[0m" << this->nickname;
+
+	// std::cout.unsetf(std::ios::right);
+	std::cout << "\x1b[32m|\x1b[0m" << std::endl;
+	std::cout << "\x1b[32m|-------------------------------------------|\x1b[0m" << std::endl;
 	return ;
 }
 
 void Person::search_full (void) {
-	// std::cout << "Search_full\n";
+	std::cout << "\x1b[32mFirst name: \x1b[0m" << this->first_name << std::endl;
+	std::cout << "\x1b[32mLast name: \x1b[0m" << this->last_name << std::endl;
+	std::cout << "\x1b[32mNickname: \x1b[0m" << this->nickname << std::endl;
+	std::cout << "\x1b[32mLogin: \x1b[0m" << this->login << std::endl;
+	std::cout << "\x1b[32mPostal addres: \x1b[0m" << this->postal_address << std::endl;
+	std::cout << "\x1b[32mEmail address: \x1b[0m" << this->email_address << std::endl;
+	std::cout << "\x1b[32mPhone number: \x1b[0m" << this->phone_number << std::endl;
+	std::cout << "\x1b[32mBirthday date: \x1b[0m" << this->birthday_date << std::endl;
+	std::cout << "\x1b[32mFavorite meal: \x1b[0m" << this->favorite_meal << std::endl;
+	std::cout << "\x1b[32mUnderwear color: \x1b[0m" << this->underwear_color << std::endl;
+	std::cout << "\x1b[32mDarkest secret: \x1b[0m" << this->darkest_secret << std::endl;
 	return ;
 }
