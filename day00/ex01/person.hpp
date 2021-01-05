@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   person.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/05 20:30:34 by gbroccol          #+#    #+#             */
+/*   Updated: 2021/01/05 20:34:58 by gbroccol         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PERSON_HPP
 # define PERSON_HPP
 
-#include <iostream> 	// std
-#include <iomanip> 		// std::setw
+#include <iostream>
+#include <iomanip>
 
 class Person {
 private:
@@ -20,8 +32,8 @@ private:
 	std::string darkest_secret;
 	int check_person	(void);
 public:
-	Person				(void); // constuctor
-	~Person				(void); // destructor
+	Person				(void);
+	~Person				(void);
 	int add_person		(int id);
 	void search			(void);
 	void search_id		(void);
