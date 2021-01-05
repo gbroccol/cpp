@@ -1,8 +1,8 @@
 #ifndef PERSON_HPP
 # define PERSON_HPP
 
-#include <iostream> // std
-#include <iomanip> // ?
+#include <iostream> 	// std
+#include <iomanip> 		// std::setw
 
 class Person {
 private:
@@ -18,12 +18,13 @@ private:
 	std::string favorite_meal;
 	std::string underwear_color;
 	std::string darkest_secret;
+	int check_person	(void);
 public:
 	Person				(void); // constuctor
 	~Person				(void); // destructor
-	void add_person		(int id);
-	void search_short	(void);
-	void search_full	(void);
+	int add_person		(int id);
+	void search			(void);
+	void search_id		(void);
 };
 
 #endif
