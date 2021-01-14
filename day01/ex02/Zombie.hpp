@@ -13,16 +13,21 @@
 #ifndef ZOMBIE_HPP
 # define ZOMBIE_HPP
 
-// #include <iostream>
-// #include <string>
+#include <iostream> // ?
+#include <string> // ?
+#include <iomanip> // ?
 
 class  Zombie
 {
 private:
+	std::string		type;
+	std::string		name;
 	
 public:
-	 Zombie();
-	~ Zombie();
+	 Zombie(std::string name, std::string type);
+	~ Zombie(void);
+
+	void	announce(void); // output something along the lines of: <name (type)> Braiiiiiiinnnssss...
 };
 
 #endif

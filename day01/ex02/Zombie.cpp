@@ -21,3 +21,10 @@ Zombie::~Zombie(void)
 {
 	return ;
 }
+
+void	Zombie::announce()
+{
+	std::cout << "<" << this->name << " (" << this->type << ") " << "Braiiiiiiinnnssss..." << std::endl;	
+	return ;
+}
+

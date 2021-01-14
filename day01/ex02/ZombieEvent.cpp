@@ -12,10 +12,31 @@
 
 #include "ZombieEvent.hpp"
 
-ZombieEvent::ZombieEvent(/* args */)
+ZombieEvent::ZombieEvent()
 {
+	return ;
 }
 
 ZombieEvent::~ZombieEvent()
 {
+	return ;
 }
+
+void		ZombieEvent::setZombieType()
+{
+	
+}
+
+Zombie* 	ZombieEvent::newZombie(std::string name) //  that will create a Zombie with the chosen type, name it, and return it. 
+{
+
+}
+
+std::string		ZombieEvent::randomChump()
+{
+
+
+	return ("v");
+} 
+
+// that will create a Zombie with a random name, and make it announce itself.
