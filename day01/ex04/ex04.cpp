@@ -6,11 +6,22 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 20:50:14 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/05 20:50:29 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/15 21:02:50 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// Make a program in which you will create a string containing "HI THIS IS BRAIN", a
-// pointer to it, and a reference to it.
-// You will then display it using the pointer, and finally display it using the reference.
-// That’s all, no tricks.
+#include <iostream>
+#include <string>
+
+int main()
+{
+	std::string		message = "HI THIS IS BRAIN";
+	
+	std::string		*pointer = &message;
+	std::string		&reference = message;
+
+	std::cout << *pointer << std::endl;
+	std::cout << reference << std::endl;
+
+	return (0);
+}

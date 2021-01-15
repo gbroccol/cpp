@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 12:19:07 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/15 19:05:31 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/15 19:15:51 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void		ZombieEvent::randomChump(void)
 								"Little Zombie", "Bloater", "Follower"};
 	Zombie			*zmb;
 	int i = 0;
-
 	while (i < 9) 
 	{
 		nmb = rand() % 10;
