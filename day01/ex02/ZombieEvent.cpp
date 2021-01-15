@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 12:19:07 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/13 14:21:17 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/15 19:05:31 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,39 @@ ZombieEvent::~ZombieEvent()
 	return ;
 }
 
-void		ZombieEvent::setZombieType()
+void		ZombieEvent::setZombieType(std::string type)
 {
-	
+	this->type = type;
+	return ;
 }
 
-Zombie* 	ZombieEvent::newZombie(std::string name) //  that will create a Zombie with the chosen type, name it, and return it. 
+Zombie* 	ZombieEvent::newZombie(std::string name)
 {
+	Zombie	*new_zombie = new Zombie(name, this->type);
 
+	return (new_zombie);
 }
 
-std::string		ZombieEvent::randomChump()
+void		ZombieEvent::randomChump(void)
 {
+	int				nmb;
+	std::string		names[10] = {"Grower", "Brittle Zombie", "Crusty", \
+								"Clamper", "Stumbler", "Chunky", "Forager", \
+								"Little Zombie", "Bloater", "Follower"};
+	Zombie			*zmb;
+	int i = 0;
 
-
-	return ("v");
+	while (i < 9) 
+	{
+		nmb = rand() % 10;
+		zmb = this->newZombie(names[nmb]);
+		zmb->announce();
+		delete(zmb);
+		i++;
+	}
+	return ;
 } 
 
-// that will create a Zombie with a random name, and make it announce itself.
+
+	
+
