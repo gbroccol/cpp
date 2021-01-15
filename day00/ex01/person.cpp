@@ -6,11 +6,11 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 20:30:27 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/05 20:30:28 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/15 13:32:02 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "person.hpp"
+#include "Person.hpp"
 
 Person::Person (void) {
 	return ;
