@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 #include <iostream>
 #include <string>
@@ -23,7 +23,7 @@ private:
 	int			weight;
 	
 public:
-	Brain();
+	Brain(int size, int weight);
 	~Brain();
 	std::string			identify();
 };

@@ -12,8 +12,11 @@
 
 #include "Brain.hpp"
 
-Brain::Brain()
+Brain::Brain(int size, int weight)
 {
+	this->size = size;
+	this->weight = weight;
+	return ;
 }
 
 Brain::~Brain()

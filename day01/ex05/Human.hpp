@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef HUMAN_HPP
+# define HUMAN_HPP
 
 #include <iostream>
 #include <string>
@@ -20,12 +20,12 @@
 class Human
 {
 private:
-	Brain	*myBrain;
+	Brain	myBrain;
 public:
-	Human();
-	~Human();
+	Human(void);
+	~Human(void);
 
-	std::string		identify();
+	std::string		identify(void);
 };
 
 #endif

@@ -15,9 +15,18 @@
 
 Human::Human()
 {
-	this->myBrain
+	this->myBrain = Brain(32, 45);
+	return ;
 }
 
 Human::~Human()
 {
+	return ;
+}
+
+std::string		Human::identify(void)
+{
+	std::string address = &this->myBrain;
+
+	return(address);
 }
