@@ -10,13 +10,77 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <string>
+#include <fstream>
+// #include <sstream>
+
+#define WRONG_NMB_ARG	1
+#define NO_SUCH_FILE	2
+#define EMPTY_LINE		3
+
+int		ft_error(int error_type)
+{
+	if (error_type == WRONG_NMB_ARG)
+		std::cout << "Error" << std::endl << "Wrong number of arguments" << std::endl;
+	if (error_type == NO_SUCH_FILE)
+		std::cout << "Error" << std::endl << "There is no such file" << std::endl;
+	if (error_type == EMPTY_LINE)
+		std::cout << "Error" << std::endl << "Strings for replacing can not be empty" << std::endl;
+	return (1);
+}
+
+// aaaaaaa
+void	ft_replace(std::string s1, std::string s2, std::ifstream *fin, std::ofstream *fout)
+{
+	std::string str;
+	int pos;
+
+	while (!fin->eof())
+	{
+		pos = 0;
+		std::getline(*fin, str);
+		while (pos != std::string::npos)
+		{
+			pos = str.find(s1);
+			if (pos != std::string::npos)
+				str.replace(pos, s1.length(), s2);
+		}
+		if (!fin->eof())
+			*fout << str << std::endl;
+	}
+}
+
+int main (int argc, char **argv)
+{
+	if (argc != 4)
+		return (ft_error(WRONG_NMB_ARG));
+	else
+	{
+		std::string		old_file = argv[1];
+		std::string		new_file = old_file + ".replace";
+		std::string		s1 = argv[2];
+		std::string		s2 = argv[3];
 
 
+		if (s1.length() == 0 || s2.length() == 0)
+			return (ft_error(EMPTY_LINE));
+		std::ifstream fin(old_file);
+		// if (!fin.good())
+			// return (ft_error(NO_SUCH_FILE)); // ???
+		std::ofstream fout(new_file);
+		if (!fout.good())
+		{
+			fin.close();
+			return (ft_error(NO_SUCH_FILE)); // ???
+		}
+		ft_replace(s1, s2, &fin, &fout);
+		fout.close();
+		fin.close();
+	}
+	return (0);
+}
 
-// Make a program called replace that takes a filename and two strings, let’s call them
-// s1 and s2, that are NOT empty.
-// It will open the file, and write its contents to FILENAME.replace, after replacing
-// every occurence of s1 with s2.
-// Of course, you will handle errors as best you can, and not use the C file manipulation
-// functions, because that would be cheating, and cheating’s bad, m’kay?
-// You will turn in some test files to show your program works.
+// fstream
+// ifstream - чтение из файла
+// ofstream - запись в файл

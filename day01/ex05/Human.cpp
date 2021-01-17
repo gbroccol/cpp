@@ -6,27 +6,30 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 21:05:45 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/15 21:17:45 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/16 16:03:58 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Human.hpp"
 #include "Brain.hpp"
+#include "Human.hpp"
+#include <string>
 
-Human::Human()
-{
-	this->myBrain = Brain(32, 45);
-	return ;
-}
-
-Human::~Human()
+Human::Human(void)
 {
 	return ;
 }
 
-std::string		Human::identify(void)
+Human::~Human(void)
 {
-	std::string address = &this->myBrain;
+	return ;
+}
 
-	return(address);
+Brain 	const	&Human::getBrain(void) const
+{
+	return this->myBrain;
+}
+
+std::string		Human::identify(void) const
+{
+	return (getBrain().identify());
 }

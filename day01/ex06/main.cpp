@@ -10,18 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
-
-
-// Make a Weapon class, that has a type string, and a getType that returns a const
-// reference to this string. Also has a setType.
-// Now, create two classes, HumanA and HumanB, that both have a Weapon, a name, and
-// an attack() function that displays something like:
-// NAME attacks with his WEAPON_TYPE
-// Make it so the following code produces attacks with "crude spiked club" THEN "some
-// other type of club", in both test cases:
-
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {
@@ -41,8 +32,3 @@ int main()
 		jim.attack();
 	}
 }
-
-
-// In which case is it appropriate to store the Weapon as a pointer? As a reference?
-// Why? Is it the best choice in light of what’s asked? These are the questions you should
-// ask yourself before turning in this exercise.

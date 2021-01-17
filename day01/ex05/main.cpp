@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 21:05:26 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/15 21:09:59 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/16 15:42:53 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,5 @@ int main()
 	Human		bob;
 
 	std::cout << bob.identify() << std::endl;
-	// std::cout << bob.getBrain().identify() << std::endl;
-	return (0);
+	std::cout << bob.getBrain().identify() << std::endl;
 }

@@ -6,26 +6,26 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 21:05:42 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/15 21:15:04 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/16 16:16:44 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
 
-#include <iostream>
-#include <string>
+# include <string>
+# include <iostream>
+# include <sstream>
 
 class Brain
 {
-private:
-	int			size;
-	int			weight;
-	
-public:
-	Brain(int size, int weight);
-	~Brain();
-	std::string			identify();
+	private:
+		unsigned int	size;
+		unsigned int	weight;
+	public:
+		Brain(void);
+		~Brain(void);
+		std::string	identify(void) const;
 };
 
 #endif
