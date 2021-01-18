@@ -6,14 +6,13 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 20:53:40 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/05 20:53:44 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/18 19:50:32 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include <fstream>
-// #include <sstream>
 
 #define WRONG_NMB_ARG	1
 #define NO_SUCH_FILE	2
@@ -30,24 +29,24 @@ int		ft_error(int error_type)
 	return (1);
 }
 
-// aaaaaaa
+
 void	ft_replace(std::string s1, std::string s2, std::ifstream *fin, std::ofstream *fout)
 {
-	std::string str;
-	int pos;
+	std::string		str;
+	size_t			pos;
 
-	while (!fin->eof())
+	while (!fin->eof() && std::getline(*fin, str))
 	{
 		pos = 0;
-		std::getline(*fin, str);
-		while (pos != std::string::npos)
+		while ((pos = str.find(s1, pos)) != std::string::npos)
 		{
-			pos = str.find(s1);
-			if (pos != std::string::npos)
-				str.replace(pos, s1.length(), s2);
+			str.replace(pos, s1.length(), s2);
+			pos += s2.length();
+			// pos = str.find(s1, pos);
 		}
-		if (!fin->eof())
-			*fout << str << std::endl;
+		*fout << str << std::endl;
+		if (fin->eof())
+			break ;
 	}
 }
 
@@ -66,13 +65,13 @@ int main (int argc, char **argv)
 		if (s1.length() == 0 || s2.length() == 0)
 			return (ft_error(EMPTY_LINE));
 		std::ifstream fin(old_file);
-		// if (!fin.good())
-			// return (ft_error(NO_SUCH_FILE)); // ???
+		if (!fin.good())
+			return (ft_error(NO_SUCH_FILE));
 		std::ofstream fout(new_file);
 		if (!fout.good())
 		{
 			fin.close();
-			return (ft_error(NO_SUCH_FILE)); // ???
+			return (ft_error(NO_SUCH_FILE));
 		}
 		ft_replace(s1, s2, &fin, &fout);
 		fout.close();
@@ -81,6 +80,5 @@ int main (int argc, char **argv)
 	return (0);
 }
 
-// fstream
 // ifstream - чтение из файла
 // ofstream - запись в файл

@@ -3,38 +3,37 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gbroccol <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/17 17:29:25 by gbroccol          #+#    #+#              #
-#    Updated: 2021/01/17 17:29:25 by gbroccol         ###   ########.fr        #
+#    Updated: 2021/01/18 13:08:52 by gbroccol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = replace
-SRCS = 	./main.cpp
+NAME =		replace
 
-INCLUDES = ./
+CC =		clang++
 
-FLAGS = -Wall -Wextra -Werror
-OBJS = $(SRCS:.cpp=.o)
+FLAGS =		-Wall -Werror -Wextra -std=c++98
 
-.PHONY: all clean fclean re
+SRCS =		main.cpp
 
-%.o: %.c
-	clang++ $(FLAGS) -I $(INCLUDES) -c $< -o $@
-	
+OBJ =		$(SRCS:.cpp=.o)
+
+%.o: %.cpp
+			$(CC) $(FLAGS) -c $< -o $@
+
 all: $(NAME)
-
-$(NAME): $(OBJS)
-	clang++ $(OBJS) -o $(NAME)
-	
+$(NAME): $(OBJ)
+			$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 clean:
-	/bin/rm -f $(OBJS)
-	
-fclean: clean
-	/bin/rm -f $(NAME)
+			rm -rf $(OBJ)
+fclean:
+			rm -rf $(OBJ) $(NAME)
+			rm -rf test.replace
+re: fclean all
 
 test: all
 	./replace "test" "HAPPY" "SAD"
 
-re: fclean all
+.PHONY: all clean fclean re

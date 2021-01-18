@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gbroccol <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 15:35:52 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/17 15:35:52 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/18 15:48:40 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@
 # include <string>
 # include <iostream>
 # include "Weapon.hpp"
-// # include <sstream>
 
 class HumanA
 {
 private:
 	
-	Weapon const	&myWeapon;
+	Weapon const	&myWeapon; // хранит ссылку на ОРУЖИЕ // const константная ссылка на неконстантную переменную
 	std::string		name;
 
 public:
@@ -31,18 +30,5 @@ public:
 
 	void			attack(void) const;
 };
-
-HumanA::HumanA(std::string const name, Weapon const &myWeapon) : myWeapon(myWeapon), name(name)
-{
-}
-
-HumanA::~HumanA(void)
-{
-}
-
-void		HumanA::attack(void) const
-{
-	std::cout << this->name << " attacks with his " << this->myWeapon.getType() << std::endl;
-}
 
 #endif
