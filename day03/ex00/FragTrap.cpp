@@ -6,7 +6,16 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 20:18:49 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/18 20:18:50 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/19 15:05:24 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "FragTrap.hpp"
+
+FragTrap::FragTrap()
+{
+}
+
+FragTrap::~FragTrap()
+{
+}
