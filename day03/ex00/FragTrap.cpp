@@ -184,24 +184,22 @@ void				FragTrap::rangedAttack(std::string const & target)
 	if (_hit <= 0)
 	{
 		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
-		std::cout << "\x1b[31mI'm dead\x1b[0m" << std::endl;
+		std::cout << "\x1b[31mI can not attack. I'm dead\x1b[0m" << std::endl;
 		return ;
 	}
-	if (this->_energy >= cost)
+	else if (this->_energy < cost)
+	{
+		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
+		std::cout << "\x1b[31mI can not attack, too few energy\x1b[0m" << std::endl;
+	}
+	else if (this->_energy >= cost)
 	{
 		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
 		std::cout << "Sorry, did that hurt? That \"sorry\" was sarcasm I am not sorry" << std::endl;
 		
-		std::cout << "Damage: " << _ranged_damage << std::endl;
-		std::cout << "Energy: " << cost << std::endl;
+		// std::cout << "Damage: " << _ranged_damage << std::endl;
+		// std::cout << "Energy: " << cost << std::endl;
 		this->_energy = this->_energy - cost;
-		
-		this->printData("Ranged attack", target);
-	}
-	else
-	{
-		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
-		std::cout << "I can not attack, too few energy" << std::endl;
 		
 		this->printData("Ranged attack", target);
 	}
@@ -214,39 +212,36 @@ void				FragTrap::meleeAttack(std::string const & target)
 	if (_hit <= 0)
 	{
 		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
-		std::cout << "\x1b[31mI'm dead\x1b[0m" << std::endl;
+		std::cout << "\x1b[31mI can not attack. I'm dead\x1b[0m" << std::endl;
 		return ;
 	}
-	if (this->_energy >= cost)
+	else if (this->_energy < cost)
+	{
+		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
+		std::cout << "\x1b[31mI can not attack, too few energy\x1b[0m" << std::endl;
+	}
+	else if (this->_energy >= cost)
 	{
 		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
 		std::cout << "How hilarious. Your death approaches." << std::endl;
-		
-		std::cout << "Damage: " << _melee_damage << std::endl;
-		std::cout << "Energy: " << cost << std::endl;
+		// std::cout << "Damage: " << _melee_damage << std::endl;
+		// std::cout << "Energy: " << cost << std::endl;
 		this->_energy = this->_energy - cost;
 		
 		this->printData("Melee attack", target);
 	}
-	else
-	{
-		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
-		std::cout << "I can not attack, too few energy" << std::endl;
-		
-		this->printData("Melee attack", target);
-	}
-
 }
 
 void				FragTrap::vaulthunter_dot_exe(std :: string const & target)
 {
 	int		cost = 25;
-	int		damage = 50;
+	// int		damage = 50;
 
+	std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
 	if (_hit <= 0)
 	{
-		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
-		std::cout << "\x1b[31mI'm dead\x1b[0m" << std::endl;
+		// std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
+		std::cout << "\x1b[31mI can not attack. I'm dead\x1b[0m" << std::endl;
 		return ;
 	}
 	if (this->_energy >= cost)
@@ -259,24 +254,22 @@ void				FragTrap::vaulthunter_dot_exe(std :: string const & target)
 											"Corrosive",
 											"Shock",
 											"Explosive"};
-		std::string		phrases[com_nmb] = {"I LIKE MY ENEMIES HOW I LIKE MY COFFEE, IN THE BUTT",
-											"Hey, this area kinda smells like butts and dead people",
-											"I enjoy that",
-											"I have destroyed you, a deadly shot from nowhere",
+		std::string		phrases[com_nmb] = {"Your pain is delicious",
+											"Hey, this area kinda smells like dead people",
+											"Time to die, bad guy!",
+											"This will hurt",
 											"Assassination. It’s hard work, but also art. I love what I do."};
 		nmb = rand() % com_nmb;
-		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
+		// std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
 		std::cout << phrases[nmb] << std::endl;
-		std::cout << "Damage: " << damage << std::endl;
-		std::cout << "Energy: " << cost << std::endl;
+		// std::cout << "Damage: " << damage << std::endl;
+		// std::cout << "Energy: " << cost << std::endl;
 		this->printData(attacks[nmb], target);
 	}
 	else
 	{
-		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
-		std::cout << "I can not attack, too few energy" << std::endl;
-		
-		this->printData("Vaulthunter attack", target);
+		std::cout << "\x1b[31mI can not attack, too few energy\x1b[0m" << std::endl;	
+		// this->printData("Vaulthunter attack", target);
 	}
 }
 
@@ -284,24 +277,28 @@ void				FragTrap::takeDamage(unsigned int amount)
 {
 	int				nmb;
 
-	if (_hit <= 0)
-	{
-		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
-		std::cout << "\x1b[31mI'm dead\x1b[0m" << std::endl;
-		return ;
-	}
-	this->_hit = this->_hit - amount + this->_armor_damage_reduction;
+	std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
 	if (this->_hit <= 0)
 	{
 		this->_hit = 0;
-		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
+		std::cout << "\x1b[31mI'm dead. You can not damage me. Ha-ha-ha\x1b[0m" << std::endl;
+		return ;
+	}
+	else if ((int)amount <= 0)
+	{
+		std::cout << "\x1b[31mDo you want to damage me with it? Hahahahahahaha...\x1b[0m" << std::endl;
+	}
+	else if ((this->_hit - (int)amount + this->_armor_damage_reduction) <= 0)
+	{
+		this->_hit = 0;
 		std::cout << "\x1b[31mScoring a critical hit. Good bye!\x1b[0m" << std::endl;
-		std::cout << "Damage: " << amount << std::endl;
+		// std::cout << "Damage: " << amount << std::endl;
 		std::cout << "Armor:  " << this->_armor_damage_reduction << std::endl;
 		this->printData("Take damage", _name);
 	}
 	else
 	{
+		this->_hit = this->_hit - (int)amount + this->_armor_damage_reduction;
 		const int		com_nmb = 7;
 		nmb = rand() % com_nmb;
 		std::string		damage[com_nmb] = { "Oh my God, I'm leaking! I think I'm leaking! Ahhhh, I'm leaking! There's oil everywhere!",
@@ -311,44 +308,49 @@ void				FragTrap::takeDamage(unsigned int amount)
 											"I'll tell you, man -- being a god sucks",
 											"I must seek cover quickly, pain is coming.",
 											"I will not die here. I have too much left to do. And too much ammo."};
-		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
 		std::cout << damage[nmb] << std::endl;	
-		std::cout << "Damage: " << amount << std::endl;
+		// std::cout << "Damage: " << amount << std::endl;
 		std::cout << "Armor:  " << this->_armor_damage_reduction << std::endl;
 		this->printData("Take damage", _name);					
 	}
+	// this->printData("Take damage", _name);
 
 }
 
 void				FragTrap::beRepaired(unsigned int amount)
 {
+	bool		repair = false;
+
 	/* increase hit */
 	std::cout << _name_color << _name << ": " << "\x1b[0m";
 	if (amount > 0 && amount <= 100 && _hit < (int)_hit_max && (_hit + amount) <= _hit_max)
 	{
+		repair = true;
 		_hit += amount;
 		if (_hit > (int)_hit_max)
 			_hit = _hit_max;
 		std::cout << "Good as new, I think. Am I leaking?" << std::endl;
-		std::cout << "Hit = " << _hit << std::endl;
+		// std::cout << "Hit = " << _hit << std::endl;
 	}
 	else
-		std::cout << "Can not increase hit" << std::endl;
+		std::cout << "\x1b[31mCan not increase hit\x1b[0m" << std::endl;
 	
 	/* increase energy */
-	std::cout << _name_color << _name << ": " << "\x1b[0m";
+	// std::cout << _name_color << _name << ": " << "\x1b[0m";
+	std::cout << _name_color << "           " << "\x1b[0m";
 	if (amount > 0 && amount <= _energy_max && _energy < (int)_energy_max && (_energy + amount) <= _energy_max)
 	{
+		repair = true;
 		_energy += amount;
 		if (_energy > (int)_energy_max)
 			_energy = _energy_max;
-		std::cout << "Good as new, I think. Am I leaking?" << std::endl;
-		std::cout << "Energy = " << _energy << std::endl;
+		std::cout << "All systems green!" << std::endl;
+		// std::cout << "Energy = " << _energy << std::endl;
 	}
 	else
-		std::cout << "Can not increase energy" << std::endl;
-	
-	printData("Repair", _name);
+		std::cout << "\x1b[31mCan not increase energy\x1b[0m" << std::endl;
+	if (repair)
+		printData("Repair", _name);
 }
 
 /*
