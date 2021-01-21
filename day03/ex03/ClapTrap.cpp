@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 16:25:33 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/21 19:03:13 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/21 21:16:20 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,35 @@
 
 ClapTrap::ClapTrap(void)
 {
-	this->_hit = 100;
-	this->_hit_max = 0;
-	this->_energy = 0;
-	this->_energy_max = 0;
+	this->_hit = 25;
+	this->_hit_max = 25;
+	this->_energy = 25;
+	this->_energy_max = 25;
 	this->_level = 1;
 	this->_name = "DEFAULT NAME";
-	this->_melee_damage = 0;
-	this->_ranged_damage = 0;
-	this->_armor_damage_reduction = 0;
+	this->_melee_damage = 10;
+	this->_ranged_damage = 10;
+	this->_armor_damage_reduction = 10;
 }
+
+ClapTrap::ClapTrap(std::string name)
+{
+	this->_hit = 25;
+	this->_hit_max = 25;
+	this->_energy = 25;
+	this->_energy_max = 25;
+	this->_level = 1;
+	this->_name = name;
+	this->_melee_damage = 10;
+	this->_ranged_damage = 10;
+	this->_armor_damage_reduction = 10;
+	std::cout << this->_name << " (ClapTrap): " << "\x1b[0m";
+	std::cout << "It's me, hello!!!" << std::endl;
+
+	this->printData("Create robot", _name);
+	
+}
+
 
 ClapTrap::ClapTrap( ClapTrap const & ClassToCopy )
 {
@@ -59,7 +78,7 @@ void				ClapTrap::setName(std::string name)
 	std::string		old_name = this->_name;
 	
 	this->_name = name;
-	std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
+	std::cout << this->_name_color << this->_name << " (ClapTrap): " << "\x1b[0m";
 	std::cout << "The best name is " << this->_name << std::endl;
 	this->printData("Change name", old_name);
 	return ;

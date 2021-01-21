@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 16:25:37 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/21 19:28:04 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/21 20:09:10 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ class ClapTrap
 		
 		void			printData(std::string action, std::string target);
 		
+	public:
+
+		ClapTrap( void );											// CONONICAL FORM
+		ClapTrap( std::string Name );
+		ClapTrap( ClapTrap const & ClassToCopy );					// CONONICAL FORM
+		~ClapTrap( void );											// CONONICAL FORM
+
 		/* get */
 		int					getHit(void) const; 
 		int					getHitMax(void) const; 
@@ -42,15 +49,8 @@ class ClapTrap
 		std::string			getName(void) const; 
 		int					getMeleeDamage(void) const; 
 		int					getRangedDamage(void) const; 
-		int					getArmorDamageReduction(void) const; 
+		int					getArmorDamageReduction(void) const;
 		
-	public:
-
-		ClapTrap( void );											// CONONICAL FORM
-		ClapTrap( std::string Name );
-		ClapTrap( ClapTrap const & ClassToCopy );					// CONONICAL FORM
-		~ClapTrap( void );											// CONONICAL FORM
-
 		/* set */
 		void				setName(std::string);
 		void				setNameColor(std::string);
