@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 20:19:17 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/20 21:43:09 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/21 15:09:38 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int main()
 
 	/* TESTS FOR DAMAGE */
 	std::cout << "\x1b[1;33m__________________________________________________________TESTS FOR DAMAGE__________________________________________________________\x1b[0m" << std::endl;
+	dan.takeDamage(2);
 	dan.takeDamage(-50);
 	dan.takeDamage(0);
 	dan.takeDamage(150);
@@ -80,13 +81,16 @@ int main()
 
 	/* TESTS FOR REPAIR */
 	std::cout << "\x1b[1;33m__________________________________________________________TESTS FOR REPAIR__________________________________________________________\x1b[0m" << std::endl;
+	dan.takeDamage(2);
+	dan.beRepaired(2);
 	dan.beRepaired(-50);
 	dan.beRepaired(150);
 	dan.beRepaired(40);
 	dan.beRepaired(60);
 	dan.beRepaired(10);
 	dan.beRepaired(0);
-	dan.beRepaired(45);
+	dan.beRepaired(48);
+	dan.beRepaired(43);
 	std::cout << std::endl;
 	getchar();
 

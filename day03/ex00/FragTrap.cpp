@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 20:18:49 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/20 21:43:27 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/21 15:44:37 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,9 +196,6 @@ void				FragTrap::rangedAttack(std::string const & target)
 	{
 		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
 		std::cout << "Sorry, did that hurt? That \"sorry\" was sarcasm I am not sorry" << std::endl;
-		
-		// std::cout << "Damage: " << _ranged_damage << std::endl;
-		// std::cout << "Energy: " << cost << std::endl;
 		this->_energy = this->_energy - cost;
 		
 		this->printData("Ranged attack", target);
@@ -224,8 +221,6 @@ void				FragTrap::meleeAttack(std::string const & target)
 	{
 		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
 		std::cout << "How hilarious. Your death approaches." << std::endl;
-		// std::cout << "Damage: " << _melee_damage << std::endl;
-		// std::cout << "Energy: " << cost << std::endl;
 		this->_energy = this->_energy - cost;
 		
 		this->printData("Melee attack", target);
@@ -235,12 +230,10 @@ void				FragTrap::meleeAttack(std::string const & target)
 void				FragTrap::vaulthunter_dot_exe(std :: string const & target)
 {
 	int		cost = 25;
-	// int		damage = 50;
 
 	std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
 	if (_hit <= 0)
 	{
-		// std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
 		std::cout << "\x1b[31mI can not attack. I'm dead\x1b[0m" << std::endl;
 		return ;
 	}
@@ -260,61 +253,42 @@ void				FragTrap::vaulthunter_dot_exe(std :: string const & target)
 											"This will hurt",
 											"Assassination. It’s hard work, but also art. I love what I do."};
 		nmb = rand() % com_nmb;
-		// std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
 		std::cout << phrases[nmb] << std::endl;
-		// std::cout << "Damage: " << damage << std::endl;
-		// std::cout << "Energy: " << cost << std::endl;
 		this->printData(attacks[nmb], target);
 	}
 	else
 	{
 		std::cout << "\x1b[31mI can not attack, too few energy\x1b[0m" << std::endl;	
-		// this->printData("Vaulthunter attack", target);
 	}
 }
 
 void				FragTrap::takeDamage(unsigned int amount)
 {
-	int				nmb;
+	int				amount_int = amount;
 
-	std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
-	if (this->_hit <= 0)
+	std::cout << _name_color << _name << ": " << "\x1b[0m";
+	if (_hit == 0)
 	{
-		this->_hit = 0;
+		_hit = 0;
 		std::cout << "\x1b[31mI'm dead. You can not damage me. Ha-ha-ha\x1b[0m" << std::endl;
 		return ;
 	}
-	else if ((int)amount <= 0)
-	{
+	else if (amount_int <= 0 || amount_int <= _armor_damage_reduction)
 		std::cout << "\x1b[31mDo you want to damage me with it? Hahahahahahaha...\x1b[0m" << std::endl;
-	}
-	else if ((this->_hit - (int)amount + this->_armor_damage_reduction) <= 0)
+	else if ((_hit - amount_int + _armor_damage_reduction) <= 0)
 	{
-		this->_hit = 0;
+		_hit = 0;
 		std::cout << "\x1b[31mScoring a critical hit. Good bye!\x1b[0m" << std::endl;
-		// std::cout << "Damage: " << amount << std::endl;
-		std::cout << "Armor:  " << this->_armor_damage_reduction << std::endl;
-		this->printData("Take damage", _name);
+		std::cout << "Armor:  " << _armor_damage_reduction << std::endl;
+		printData("Take damage", _name);
 	}
 	else
 	{
-		this->_hit = this->_hit - (int)amount + this->_armor_damage_reduction;
-		const int		com_nmb = 7;
-		nmb = rand() % com_nmb;
-		std::string		damage[com_nmb] = { "Oh my God, I'm leaking! I think I'm leaking! Ahhhh, I'm leaking! There's oil everywhere!",
-											"My servos... are seizing...", 
-											"I can see... the code",
-											"I'm detecting a motor unit malfunction... I can't move! I'm paralyzed with fear!",
-											"I'll tell you, man -- being a god sucks",
-											"I must seek cover quickly, pain is coming.",
-											"I will not die here. I have too much left to do. And too much ammo."};
-		std::cout << damage[nmb] << std::endl;	
-		// std::cout << "Damage: " << amount << std::endl;
+		_hit = _hit - amount_int + _armor_damage_reduction;
+		std::cout << "I can see... the code" << std::endl;	
 		std::cout << "Armor:  " << this->_armor_damage_reduction << std::endl;
-		this->printData("Take damage", _name);					
+		this->printData("Take damage", _name);				
 	}
-	// this->printData("Take damage", _name);
-
 }
 
 void				FragTrap::beRepaired(unsigned int amount)
@@ -330,13 +304,11 @@ void				FragTrap::beRepaired(unsigned int amount)
 		if (_hit > (int)_hit_max)
 			_hit = _hit_max;
 		std::cout << "Good as new, I think. Am I leaking?" << std::endl;
-		// std::cout << "Hit = " << _hit << std::endl;
 	}
 	else
 		std::cout << "\x1b[31mCan not increase hit\x1b[0m" << std::endl;
 	
 	/* increase energy */
-	// std::cout << _name_color << _name << ": " << "\x1b[0m";
 	std::cout << _name_color << "           " << "\x1b[0m";
 	if (amount > 0 && amount <= _energy_max && _energy < (int)_energy_max && (_energy + amount) <= _energy_max)
 	{
@@ -345,7 +317,6 @@ void				FragTrap::beRepaired(unsigned int amount)
 		if (_energy > (int)_energy_max)
 			_energy = _energy_max;
 		std::cout << "All systems green!" << std::endl;
-		// std::cout << "Energy = " << _energy << std::endl;
 	}
 	else
 		std::cout << "\x1b[31mCan not increase energy\x1b[0m" << std::endl;

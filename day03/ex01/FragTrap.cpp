@@ -1,112 +1,113 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/18 20:21:00 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/21 16:20:01 by gbroccol         ###   ########.fr       */
+/*   Created: 2021/01/18 20:18:49 by gbroccol          #+#    #+#             */
+/*   Updated: 2021/01/21 15:43:44 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-ScavTrap::ScavTrap(void)
+FragTrap::FragTrap(void)
 {
 	this->_hit = 100;
 	this->_hit_max = 100;
-	this->_energy = 50;
-	this->_energy_max = 50;
+	this->_energy = 100;
+	this->_energy_max = 100;
 	this->_level = 1;
 	this->_name = "DEFAULT NAME";
-	this->_melee_damage = 20;
-	this->_ranged_damage = 15;
-	this->_armor_damage_reduction = 3;
+	this->_melee_damage = 30;
+	this->_ranged_damage = 20;
+	this->_armor_damage_reduction = 5;
 
 	std::cout << this->_name << ": " << "\x1b[0m";
-	std::cout << "Nice to meet you all. If anyone tries to capture me, I'll incinerate their brain" << std::endl;
+	std::cout << "MEEEEEEEEleleleleleWOOOWOWOWOWWOWO. Seem to me all the uses of this world!" << std::endl;
 
 	this->printData("Create robot", _name);
 }
 
-ScavTrap::ScavTrap(std::string name)
+FragTrap::FragTrap(std::string name)
 {
 	this->_hit = 100;
 	this->_hit_max = 100;
-	this->_energy = 50;
-	this->_energy_max = 50;
+	this->_energy = 100;
+	this->_energy_max = 100;
 	this->_level = 1;
 	this->_name = name;
-	this->_melee_damage = 20;
-	this->_ranged_damage = 15;
-	this->_armor_damage_reduction = 3;
+	this->_melee_damage = 30;
+	this->_ranged_damage = 20;
+	this->_armor_damage_reduction = 5;
 	std::cout << this->_name << ": " << "\x1b[0m";
-	std::cout << "Should we band together, we'll survive this. Our enemies will not" << std::endl;
+	std::cout << "Hocus pocus! Who is the target?" << std::endl;
 
 	this->printData("Create robot", _name);
+	
 }
 
-ScavTrap::ScavTrap( ScavTrap const & ClassToCopy )
+FragTrap::FragTrap( FragTrap const & ClassToCopy )
 {
 	std::cout << this->_name << ": " << "\x1b[0m";
-	std::cout << "I am here" << std::endl;
+	std::cout << "Let me teach you the ways of magic! Just tell me what to shoot." << std::endl;
 	*this = ClassToCopy;
 	this->printData("Create robot", _name);
 	return ;
 }
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
 	std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
-	std::cout << "Bye. See you later" << std::endl;
+	std::cout << "I disappear! Goodbye!" << std::endl;
 }
 
 /*
 **	get
 */
 
-int					ScavTrap::getHit(void) const
+int					FragTrap::getHit(void) const
 {
 	return (this->_hit);
 }
 
-int					ScavTrap::getHitMax(void) const
+int					FragTrap::getHitMax(void) const
 {
 	return (this->_hit_max);
 }
 
-int					ScavTrap::getEnergy(void) const
+int					FragTrap::getEnergy(void) const
 {
 	return (this->_energy);
 }
 
-int					ScavTrap::getEnergyMax(void) const
+int					FragTrap::getEnergyMax(void) const
 {
 	return (this->_energy_max);
 }
 
-int					ScavTrap::getLevel(void) const
+int					FragTrap::getLevel(void) const
 {
 	return (this->_level);
 }
 
-std::string			ScavTrap::getName(void) const
+std::string			FragTrap::getName(void) const
 {
 	return (this->_name);
 }
 
-int					ScavTrap::getMeleeDamage(void) const
+int					FragTrap::getMeleeDamage(void) const
 {
 	return (this->_melee_damage);
 }
 
-int					ScavTrap::getRangedDamage(void) const
+int					FragTrap::getRangedDamage(void) const
 {
 	return (this->_ranged_damage);
 }
 
-int					ScavTrap::getArmorDamageReduction(void) const
+int					FragTrap::getArmorDamageReduction(void) const
 {
 	return (this->_armor_damage_reduction);
 }
@@ -115,18 +116,18 @@ int					ScavTrap::getArmorDamageReduction(void) const
 **	set
 */
 
-void				ScavTrap::setName(std::string name)
+void				FragTrap::setName(std::string name)
 {
 	std::string		old_name = this->_name;
 	
 	this->_name = name;
 	std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
-	std::cout << "The best name is " << this->_name << std::endl;
+	std::cout << "My name is " << this->_name << std::endl;
 	this->printData("Change name", old_name);
 	return ;
 }
 
-void				ScavTrap::setNameColor(std::string color)
+void				FragTrap::setNameColor(std::string color)
 {
 	this->_name_color = color;
 	return ;
@@ -138,7 +139,7 @@ void				ScavTrap::setNameColor(std::string color)
 
 #include <iomanip>
 
-void				ScavTrap::printData(std::string action, std::string target)
+void				FragTrap::printData(std::string action, std::string target)
 {
 	std::cout << "▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿▿" << std::endl;
 	std::cout << "▹            NAME|          ACTION|          TARGET|   ENERGY POINTS|      HIT POINTS◃" << std::endl;
@@ -176,90 +177,92 @@ void				ScavTrap::printData(std::string action, std::string target)
 	std::cout << std::endl << "▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵▵" << std::endl;
 }
 
-void				ScavTrap::rangedAttack(std::string const & target)
+void				FragTrap::rangedAttack(std::string const & target)
 {
 	int		cost = 10;
 
 	if (_hit <= 0)
 	{
 		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
-		std::cout << "\x1b[31mSorry, but I'm dead\x1b[0m" << std::endl;
+		std::cout << "\x1b[31mI can not attack. I'm dead\x1b[0m" << std::endl;
 		return ;
 	}
 	else if (this->_energy < cost)
 	{
 		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
-		std::cout << "\x1b[31mI need more energy\x1b[0m" << std::endl;
+		std::cout << "\x1b[31mI can not attack, too few energy\x1b[0m" << std::endl;
 	}
 	else if (this->_energy >= cost)
 	{
 		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
-		std::cout << "Looks like my training is paying off!" << std::endl;
+		std::cout << "Sorry, did that hurt? That \"sorry\" was sarcasm I am not sorry" << std::endl;
 		this->_energy = this->_energy - cost;
+		
 		this->printData("Ranged attack", target);
 	}
 }
 
-void				ScavTrap::meleeAttack(std::string const & target)
+void				FragTrap::meleeAttack(std::string const & target)
 {
 	int		cost = 10;
 
 	if (_hit <= 0)
 	{
 		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
-		std::cout << "\x1b[31mSorry, but I'm dead\x1b[0m" << std::endl;
+		std::cout << "\x1b[31mI can not attack. I'm dead\x1b[0m" << std::endl;
 		return ;
 	}
 	else if (this->_energy < cost)
 	{
 		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
-		std::cout << "\x1b[31mI need more energy\x1b[0m" << std::endl;
+		std::cout << "\x1b[31mI can not attack, too few energy\x1b[0m" << std::endl;
 	}
 	else if (this->_energy >= cost)
 	{
 		std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
-		std::cout << "Fear me, bitches!" << std::endl;
+		std::cout << "How hilarious. Your death approaches." << std::endl;
 		this->_energy = this->_energy - cost;
 		
 		this->printData("Melee attack", target);
 	}
 }
 
-void				ScavTrap::challengeNewcomer(std :: string const & target)
+void				FragTrap::vaulthunter_dot_exe(std :: string const & target)
 {
-	int		cost = 10;
+	int		cost = 25;
 
-	std::cout << _name_color << _name << ": " << "\x1b[0m";
+	std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
 	if (_hit <= 0)
 	{
-		std::cout << "\x1b[31mI'm dead\x1b[0m" << std::endl;
+		std::cout << "\x1b[31mI can not attack. I'm dead\x1b[0m" << std::endl;
 		return ;
 	}
-	else if (_energy >= cost)
+	if (this->_energy >= cost)
 	{
-		_energy -= cost;
+		this->_energy -= cost;
 		int				nmb;
 		const int		com_nmb = 5;
-		std::string		challenges[com_nmb] = 	{ "Ice Bucket Challenge",
-													"Skate Boarding Challenge", 
-													"Loud music Challenge",
-													"No Lights Challenge",
-													"Catch An Egg Challenge"};
-		std::string		phrases[com_nmb] =		{"It will be funny",
-													"Ha-ha-ha",
-													"I enjoy that",
-													"Wow that's cool",
-													"Oh my god"};
+		std::string		attacks[com_nmb] = {"Physical",
+											"Incendiary", 
+											"Corrosive",
+											"Shock",
+											"Explosive"};
+		std::string		phrases[com_nmb] = {"Your pain is delicious",
+											"Hey, this area kinda smells like dead people",
+											"Time to die, bad guy!",
+											"This will hurt",
+											"Assassination. It’s hard work, but also art. I love what I do."};
 		nmb = rand() % com_nmb;
 		std::cout << phrases[nmb] << std::endl;
-		std::cout << "Energy: " << cost << std::endl;
-		printData(challenges[nmb], target);
+		this->printData(attacks[nmb], target);
 	}
 	else
-		std::cout << "I can not challenge him, too few energy" << std::endl;
+	{
+		std::cout << "\x1b[31mI can not attack, too few energy\x1b[0m" << std::endl;	
+	}
 }
 
-void				ScavTrap::takeDamage(unsigned int amount)
+void				FragTrap::takeDamage(unsigned int amount)
 {
 	int				amount_int = amount;
 
@@ -267,28 +270,28 @@ void				ScavTrap::takeDamage(unsigned int amount)
 	if (_hit == 0)
 	{
 		_hit = 0;
-		std::cout << "\x1b[31mWhat was that? I am dead\x1b[0m" << std::endl;
+		std::cout << "\x1b[31mI'm dead. You can not damage me. Ha-ha-ha\x1b[0m" << std::endl;
 		return ;
 	}
 	else if (amount_int <= 0 || amount_int <= _armor_damage_reduction)
-		std::cout << "\x1b[31mHa-ha-ha! It does not work\x1b[0m" << std::endl;
+		std::cout << "\x1b[31mDo you want to damage me with it? Hahahahahahaha...\x1b[0m" << std::endl;
 	else if ((_hit - amount_int + _armor_damage_reduction) <= 0)
 	{
 		_hit = 0;
-		std::cout << "\x1b[31mOh no, critical hit\x1b[0m" << std::endl;
+		std::cout << "\x1b[31mScoring a critical hit. Good bye!\x1b[0m" << std::endl;
 		std::cout << "Armor:  " << _armor_damage_reduction << std::endl;
 		printData("Take damage", _name);
 	}
 	else
 	{
 		_hit = _hit - amount_int + _armor_damage_reduction;
-		std::cout << "My servos... are seizing..." << std::endl;	
+		std::cout << "I can see... the code" << std::endl;	
 		std::cout << "Armor:  " << this->_armor_damage_reduction << std::endl;
 		this->printData("Take damage", _name);
 	}
 }
 
-void				ScavTrap::beRepaired(unsigned int amount)
+void				FragTrap::beRepaired(unsigned int amount)
 {
 	bool		repair = false;
 
@@ -300,10 +303,10 @@ void				ScavTrap::beRepaired(unsigned int amount)
 		_hit += amount;
 		if (_hit > (int)_hit_max)
 			_hit = _hit_max;
-		std::cout << "I'd call this a successful operation" << std::endl;
+		std::cout << "Good as new, I think. Am I leaking?" << std::endl;
 	}
 	else
-		std::cout << "\x1b[31mIt is impossible\x1b[0m" << std::endl;
+		std::cout << "\x1b[31mCan not increase hit\x1b[0m" << std::endl;
 	
 	/* increase energy */
 	std::cout << _name_color << "           " << "\x1b[0m";
@@ -313,10 +316,10 @@ void				ScavTrap::beRepaired(unsigned int amount)
 		_energy += amount;
 		if (_energy > (int)_energy_max)
 			_energy = _energy_max;
-		std::cout << "Wow!!! To be honest, I can't believe I survived this long" << std::endl; // All systems green!
+		std::cout << "All systems green!" << std::endl;
 	}
 	else
-		std::cout << "\x1b[31mIt is impossible\x1b[0m" << std::endl; // Can not increase energy
+		std::cout << "\x1b[31mCan not increase energy\x1b[0m" << std::endl;
 	if (repair)
 		printData("Repair", _name);
 }
@@ -325,7 +328,7 @@ void				ScavTrap::beRepaired(unsigned int amount)
 **	overload
 */
 
-ScavTrap			&ScavTrap::operator=(ScavTrap const &src)
+FragTrap			&FragTrap::operator=(FragTrap const &src)
 {
 	this->_hit = src.getHit();
 	this->_hit_max = src.getHitMax();
