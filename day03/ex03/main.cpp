@@ -18,9 +18,8 @@ int main()
 {
 	std::cout << std::endl << "\x1b[1;33mWelcome to Borderlands!\x1b[0m" << std::endl;
 	getchar();
-	
-	std::cout << "\x1b[1;33m__________________________________________________________CREATE ROBOTS__________________________________________________________\x1b[0m" << std::endl;
-	
+
+	std::cout << "\x1b[1;33m__________________________________________________________CREATE ENNEMIS__________________________________________________________\x1b[0m" << std::endl;
 	std::cout << "\x1b[35;1m";
 	NinjaTrap 		DanNinja("Dandelion");
 	DanNinja.setNameColor("\x1b[35;1m");
@@ -33,13 +32,67 @@ int main()
 	FragTrap 		BombFrag("Bomb");
 	BombFrag.setNameColor("\x1b[33;1m");
 	
-	std::cout << "\x1b[32;1m";
-	ClapTrap 		FemFrag("Fembots");
-	FemFrag.setNameColor("\x1b[32;1m");
-	
 	std::cout << std::endl;
 	getchar();
+	std::system("clear");
+
+	std::cout << "\x1b[1;33m__________________________________________________________RANGED ATTACK__________________________________________________________\x1b[0m" << std::endl;
+	DanNinja.rangedAttack("Ennemy");
+	std::cout << std::endl;
+
+	std::cout << "\x1b[1;33m__________________________________________________________MELEE ATTACK__________________________________________________________\x1b[0m" << std::endl;
+	DanNinja.meleeAttack("Ennemy");
+	getchar();
+	std::system("clear");
+
+	std::cout << "\x1b[1;33m__________________________________________________________CHALLENGE__________________________________________________________\x1b[0m" << std::endl;
+	DanNinja.ninjaShoebox(BombFrag);
+	DanNinja.ninjaShoebox(DanNinja);
+	DanNinja.ninjaShoebox(BarScav);
+	DanNinja.ninjaShoebox(DanNinja);
+	DanNinja.ninjaShoebox(BombFrag);
+	getchar();
+	std::system("clear");
+
+	std::cout << "\x1b[1;33m__________________________________________________________DAMAGE (50)__________________________________________________________\x1b[0m" << std::endl;
+	DanNinja.takeDamage(50);
+	std::cout << std::endl;
+
+	std::cout << "\x1b[1;33m__________________________________________________________REPAIR (45)__________________________________________________________\x1b[0m" << std::endl;
+	DanNinja.beRepaired(45);
+	std::cout << std::endl;
+
+	std::cout << "\x1b[1;33m__________________________________________________________REPAIR (5)__________________________________________________________\x1b[0m" << std::endl;
+	DanNinja.beRepaired(5);
 	
+	std::cout << "\x1b[1;33m__________________________________________________________REPAIR (1)__________________________________________________________\x1b[0m" << std::endl;
+	DanNinja.beRepaired(1);
+	std::cout << std::endl;
+
+	std::cout << "\x1b[1;33m__________________________________________________________DAMAGE (150)__________________________________________________________\x1b[0m" << std::endl;
+	DanNinja.takeDamage(150);
+	std::cout << std::endl;
+	getchar();
+	std::system("clear");
+
+	std::cout << "\x1b[1;33m__________________________________________________________RANGED ATTACK__________________________________________________________\x1b[0m" << std::endl;
+	DanNinja.rangedAttack("Ennemy");
+	std::cout << std::endl;
+
+	std::cout << "\x1b[1;33m__________________________________________________________MELEE ATTACK__________________________________________________________\x1b[0m" << std::endl;
+	DanNinja.meleeAttack("Ennemy");
+	getchar();
+
+
+
+
+
+
+
+
+
+
+
 	/* TESTS FOR RANGED ATTACK */
 	// std::cout << "\x1b[1;33m__________________________________________________________TESTS FOR RANGED ATTACKS__________________________________________________________\x1b[0m" << std::endl;
 	// dan.takeDamage(105);
