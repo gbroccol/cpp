@@ -1,39 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.hpp                                           :+:      :+:    :+:   */
+/*   Enemy.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/25 11:55:47 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 13:35:08 by gbroccol         ###   ########.fr       */
+/*   Created: 2021/01/25 15:07:59 by gbroccol          #+#    #+#             */
+/*   Updated: 2021/01/25 18:27:37 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PEON_HPP
-#define PEON_HPP
+#ifndef ENEMY_HPP
+#define ENEMY_HPP
 
 #include <iostream>
 #include <iomanip>
-#include "Victim.hpp"
 
-class Peon : public Victim
+class Enemy
 {
-private:
+	private:
 
-	Peon(void);												// CONONICAL FORM
+	protected:
+		
+		int				_HitPoints;
+		std::string		_Type;
+		Enemy(void);
+		
+	public:
 
-public:
+		Enemy( Enemy const & ClassToCopy );
+		Enemy(int hp, std::string const & type);
+		virtual ~Enemy(void);
+		
+		std::string				getType(void) const;
+		int						getHP(void) const;
+		virtual void			takeDamage(int damage);
 	
-	Peon( std::string name);	
-	Peon( Peon const & ClassToCopy );						// CONONICAL FORM
-	virtual ~Peon();										// CONONICAL FORM
-
-	virtual void			getPolymorphed() const;
-
-	/* overload */
-	Peon					&operator=(Peon const & src);		// CONONICAL FORM
-
+		/* overload */
+		Enemy			&operator=(Enemy const & src);
 };
 
 #endif
+
+
+

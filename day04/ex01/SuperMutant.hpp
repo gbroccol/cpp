@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.hpp                                           :+:      :+:    :+:   */
+/*   SuperMutant.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/25 11:55:47 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 13:35:08 by gbroccol         ###   ########.fr       */
+/*   Created: 2021/01/25 15:29:54 by gbroccol          #+#    #+#             */
+/*   Updated: 2021/01/25 18:28:57 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PEON_HPP
-#define PEON_HPP
+#ifndef SUPERMUTANT_HPP
+#define SUPERMUTANT_HPP
 
 #include <iostream>
 #include <iomanip>
-#include "Victim.hpp"
+#include "Enemy.hpp"
 
-class Peon : public Victim
+class SuperMutant : public Enemy
 {
 private:
 
-	Peon(void);												// CONONICAL FORM
-
 public:
-	
-	Peon( std::string name);	
-	Peon( Peon const & ClassToCopy );						// CONONICAL FORM
-	virtual ~Peon();										// CONONICAL FORM
 
-	virtual void			getPolymorphed() const;
+	SuperMutant(void);
+	SuperMutant( SuperMutant const & ClassToCopy );					// CONONICAL FORM
+	virtual ~SuperMutant();												// CONONICAL FORM
+
+	virtual void			takeDamage(int);
 
 	/* overload */
-	Peon					&operator=(Peon const & src);		// CONONICAL FORM
+	SuperMutant				&operator=(SuperMutant const & src);		// CONONICAL FORM
 
 };
 

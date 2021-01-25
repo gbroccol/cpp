@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.hpp                                           :+:      :+:    :+:   */
+/*   PowerFist.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/25 11:55:47 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 13:35:08 by gbroccol         ###   ########.fr       */
+/*   Created: 2021/01/25 14:58:32 by gbroccol          #+#    #+#             */
+/*   Updated: 2021/01/25 18:48:00 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PEON_HPP
-#define PEON_HPP
+#ifndef POWERFIST_HPP
+#define POWERFIST_HPP
 
 #include <iostream>
 #include <iomanip>
-#include "Victim.hpp"
+#include "AWeapon.hpp"
 
-class Peon : public Victim
+class PowerFist : public AWeapon
 {
 private:
 
-	Peon(void);												// CONONICAL FORM
-
 public:
 	
-	Peon( std::string name);	
-	Peon( Peon const & ClassToCopy );						// CONONICAL FORM
-	virtual ~Peon();										// CONONICAL FORM
+	PowerFist(void);
+	PowerFist( PowerFist const & ClassToCopy );	
+	virtual ~PowerFist();
 
-	virtual void			getPolymorphed() const;
+	virtual void		attack() const;
 
 	/* overload */
-	Peon					&operator=(Peon const & src);		// CONONICAL FORM
+	PowerFist			&operator=(PowerFist const & src);
 
 };
 

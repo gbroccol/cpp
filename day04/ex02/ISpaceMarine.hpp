@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.hpp                                           :+:      :+:    :+:   */
+/*   ISpaceMarine.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/25 11:55:47 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 13:35:08 by gbroccol         ###   ########.fr       */
+/*   Created: 2021/01/25 20:33:43 by gbroccol          #+#    #+#             */
+/*   Updated: 2021/01/25 20:58:41 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PEON_HPP
-#define PEON_HPP
+#ifndef ISSPACEMARINE_HPP
+#define ISSPACEMARINE_HPP
 
 #include <iostream>
 #include <iomanip>
-#include "Victim.hpp"
 
-class Peon : public Victim
+class ISpaceMarine
 {
-private:
+	private:
+		
+	public:
 
-	Peon(void);												// CONONICAL FORM
-
-public:
-	
-	Peon( std::string name);	
-	Peon( Peon const & ClassToCopy );						// CONONICAL FORM
-	virtual ~Peon();										// CONONICAL FORM
-
-	virtual void			getPolymorphed() const;
-
-	/* overload */
-	Peon					&operator=(Peon const & src);		// CONONICAL FORM
-
+		virtual ~ISpaceMarine() {}
+		virtual ISpaceMarine* clone() const = 0;
+		virtual void battleCry() const = 0;
+		virtual void rangedAttack() const = 0;
+		virtual void meleeAttack() const = 0;
 };
 
 #endif

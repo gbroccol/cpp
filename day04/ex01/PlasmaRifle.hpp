@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.hpp                                           :+:      :+:    :+:   */
+/*   PlasmaRifle.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/25 11:55:47 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 13:35:08 by gbroccol         ###   ########.fr       */
+/*   Created: 2021/01/25 14:46:37 by gbroccol          #+#    #+#             */
+/*   Updated: 2021/01/25 18:47:34 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PEON_HPP
-#define PEON_HPP
+#ifndef PLASMARIFLE_HPP
+#define PLASMARIFLE_HPP
 
 #include <iostream>
-#include <iomanip>
-#include "Victim.hpp"
+#include "AWeapon.hpp"
 
-class Peon : public Victim
+class PlasmaRifle : public AWeapon
 {
 private:
 
-	Peon(void);												// CONONICAL FORM
-
 public:
 	
-	Peon( std::string name);	
-	Peon( Peon const & ClassToCopy );						// CONONICAL FORM
-	virtual ~Peon();										// CONONICAL FORM
+	PlasmaRifle(void);
+	PlasmaRifle( PlasmaRifle const & ClassToCopy );
+	virtual ~PlasmaRifle(void);
 
-	virtual void			getPolymorphed() const;
+	virtual void		attack(void) const;
 
 	/* overload */
-	Peon					&operator=(Peon const & src);		// CONONICAL FORM
+	PlasmaRifle			&operator=(PlasmaRifle const & src);
 
 };
 

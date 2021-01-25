@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.hpp                                           :+:      :+:    :+:   */
+/*   ISquad.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/25 11:55:47 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 13:35:08 by gbroccol         ###   ########.fr       */
+/*   Created: 2021/01/25 20:23:32 by gbroccol          #+#    #+#             */
+/*   Updated: 2021/01/25 21:03:35 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PEON_HPP
-#define PEON_HPP
+#ifndef ISQUAD_HPP
+#define ISQUAD_HPP
 
 #include <iostream>
 #include <iomanip>
-#include "Victim.hpp"
+#include "ISpaceMarine.hpp"
 
-class Peon : public Victim
+class ISquad
 {
-private:
+	public:
+		
+		// virtual ISquad(void);
+		// ISquad( ISquad const & ClassToCopy );	
+		virtual ~ISquad(void);
+		
+		virtual int					getCount(void) const = 0;
+		virtual ISpaceMarine		*getUnit(int unit) const = 0;
+		virtual int					push(ISpaceMarine *NewUnit) = 0;
 
-	Peon(void);												// CONONICAL FORM
-
-public:
-	
-	Peon( std::string name);	
-	Peon( Peon const & ClassToCopy );						// CONONICAL FORM
-	virtual ~Peon();										// CONONICAL FORM
-
-	virtual void			getPolymorphed() const;
-
-	/* overload */
-	Peon					&operator=(Peon const & src);		// CONONICAL FORM
+		/* overload */
+		// ISquad			&operator=(ISquad const & src);
 
 };
 

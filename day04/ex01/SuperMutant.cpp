@@ -1,50 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.cpp                                           :+:      :+:    :+:   */
+/*   SuperMutant.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/25 11:55:31 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 12:37:23 by gbroccol         ###   ########.fr       */
+/*   Created: 2021/01/25 15:29:56 by gbroccol          #+#    #+#             */
+/*   Updated: 2021/01/25 19:53:24 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Peon.hpp"
 
-Peon::Peon(void) : Victim ("Victim") {} 
+#include "SuperMutant.hpp"
 
-Peon::Peon(std::string name) : Victim( name )
+SuperMutant::SuperMutant(void) : Enemy(170, "Super Mutant")
 {
-	_name = name;
-	std::cout << "Zog zog." << std::endl;
+	std::cout << "Gaaah. Me want smash heads!" << std::endl;
 }
 
-Peon::Peon( Peon const & ClassToCopy ) : Victim( ClassToCopy )
+SuperMutant::SuperMutant( SuperMutant const & ClassToCopy ) // test
 {
 	*this = ClassToCopy;
 	return ;
 }
 
-Peon::~Peon()
+SuperMutant::~SuperMutant()
 {
-	std::cout << "Bleuark..." << std::endl;
+	std::cout << "Aaargh..." << std::endl;
 }
 
-/*
-** polymorphed
-*/
-void				Peon::getPolymorphed() const
+void			SuperMutant::takeDamage(int damage)
 {
-	std::cout << _name << " has been turned into a cute little sheep!" << std::endl;
+	int			armor = 3;
+	Enemy::takeDamage(damage - armor);
 }
 
 /*
 **	overload
 */
 
-Peon			&Peon::operator=(Peon const &src)
+SuperMutant			&SuperMutant::operator=(SuperMutant const &src)
 {
-	this->_name = src.getName();
+	Enemy::operator=(src);
 	return *this;
 }
