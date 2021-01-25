@@ -20,17 +20,18 @@ FragTrap::FragTrap(void)
 	this->_energy_max = 100;
 	this->_level = 1;
 	this->_name = "DEFAULT NAME";
+	this->_name_color = "\x1b[35;1m";
 	this->_melee_damage = 30;
 	this->_ranged_damage = 20;
 	this->_armor_damage_reduction = 5;
 
-	std::cout << this->_name << ": " << "\x1b[0m";
+	std::cout << _name_color << this->_name << ": " << "\x1b[0m";
 	std::cout << "MEEEEEEEEleleleleleWOOOWOWOWOWWOWO. Seem to me all the uses of this world!" << std::endl;
 
 	this->printData("Create robot", _name);
 }
 
-FragTrap::FragTrap(std::string name)
+FragTrap::FragTrap(std::string name) : ClapTrap( name )
 {
 	this->_hit = 100;
 	this->_hit_max = 100;
@@ -38,10 +39,11 @@ FragTrap::FragTrap(std::string name)
 	this->_energy_max = 100;
 	this->_level = 1;
 	this->_name = name;
+	this->_name_color = "\x1b[35;1m";
 	this->_melee_damage = 30;
 	this->_ranged_damage = 20;
 	this->_armor_damage_reduction = 5;
-	std::cout << this->_name << ": " << "\x1b[0m";
+	std::cout << _name_color << this->_name << ": " << "\x1b[0m";
 	std::cout << "Hocus pocus! Who is the target?" << std::endl;
 
 	this->printData("Create robot", _name);

@@ -20,17 +20,18 @@ NinjaTrap::NinjaTrap(void)
 	_energy_max = 120;
 	_level = 1;
 	_name = "DEFAULT NAME";
+	_name_color = "\x1b[35;1m";
 	_melee_damage = 60;
 	_ranged_damage = 5;
 	_armor_damage_reduction = 0;
 
-	std::cout << _name << " (NinjaTrap): " << "\x1b[0m";
+	std::cout << _name_color << _name << " (NinjaTrap): " << "\x1b[0m";
 	std::cout << "Should we band together, we'll survive this. Our enemies will not" << std::endl;
 
 	printData("Create robot", _name);
 }
 
-NinjaTrap::NinjaTrap(std::string name)
+NinjaTrap::NinjaTrap(std::string name) : ClapTrap (name)
 {
 	_hit = 60;
 	_hit_max = 60;
@@ -38,11 +39,12 @@ NinjaTrap::NinjaTrap(std::string name)
 	_energy_max = 120;
 	_level = 1;
 	_name = name;
+	_name_color = "\x1b[35;1m";
 	_melee_damage = 60;
 	_ranged_damage = 5;
 	_armor_damage_reduction = 0;
 	
-	std::cout << _name << " (NinjaTrap): " << "\x1b[0m";
+	std::cout << _name_color << _name << " (NinjaTrap): " << "\x1b[0m";
 	std::cout << "Should we band together, we'll survive this. Our enemies will not" << std::endl;
 
 	printData("Create robot", _name);
@@ -122,7 +124,7 @@ void				NinjaTrap::meleeAttack(std::string const & target)
 
 void				NinjaTrap::ninjaShoeboxChallenge(std :: string const & target)
 {
-	std::cout << _name_color << _name << ": " << "\x1b[0m";
+	std::cout << _name_color << _name << " (NinjaTrap): " << "\x1b[0m";
 	if (_hit <= 0)
 	{
 		std::cout << "\x1b[31mI'm dead\x1b[0m" << std::endl;

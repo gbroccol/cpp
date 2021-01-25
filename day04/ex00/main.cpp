@@ -13,27 +13,37 @@
 #include "Sorcerer.hpp"
 #include "Victim.hpp"
 #include "Peon.hpp"
+#include "Slave.hpp"
+
+int main() // add more tests
+{
+	std::cout << std::endl;
+	Sorcerer		robert("Robert", "the Magnificent");
+	Slave			noname("NoName");
+	std::cout << std::endl;
+	
+	std::cout << robert << noname;
+	std::cout << std::endl;
+	
+	robert.polymorph(noname);
+	return 0;
+}
 
 // int main()
 // {
-// 	// extra test
+// 	std::cout << std::endl;
+// 	Sorcerer robert("Robert", "the Magnificent");
+// 	Victim jim("Jimmy");
+// 	Peon joe("Joe");
+// 	std::cout << std::endl;
+	
+// 	std::cout << robert << jim << joe;
+// 	std::cout << std::endl;
+	
+// 	robert.polymorph(jim);
+// 	robert.polymorph(joe);
+// 	return 0;
 // }
-
-int main()
-{
-	std::cout << std::endl;
-	Sorcerer robert("Robert", "the Magnificent");
-	Victim jim("Jimmy");
-	Peon joe("Joe");
-	std::cout << std::endl;
-	
-	std::cout << robert << jim << joe;
-	std::cout << std::endl;
-	
-	robert.polymorph(jim);
-	robert.polymorph(joe);
-	return 0;
-}
 
 // Robert, the Magnificent, is born!$
 // Some random victim called Jimmy just appeared!$

@@ -20,21 +20,46 @@ ClapTrap::ClapTrap(void)
 	this->_energy_max = 0;
 	this->_level = 1;
 	this->_name = "DEFAULT NAME";
+	this->_name_color = "\x1b[32;1m";
 	this->_melee_damage = 0;
 	this->_ranged_damage = 0;
 	this->_armor_damage_reduction = 0;
+
+	std::cout << _name_color << this->_name << ": " << "\x1b[0m";
+	std::cout << "Mother is here" << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string name)
+{
+	this->_hit = 100;
+	this->_hit_max = 0;
+	this->_energy = 0;
+	this->_energy_max = 0;
+	this->_level = 1;
+	this->_name = name;
+	this->_name_color = "\x1b[32;1m";
+	this->_melee_damage = 0;
+	this->_ranged_damage = 0;
+	this->_armor_damage_reduction = 0;
+
+	std::cout << _name_color << this->_name << ": " << "\x1b[0m";
+	std::cout << "Mother is here" << std::endl;
 }
 
 ClapTrap::ClapTrap( ClapTrap const & ClassToCopy )
 {
 	std::cout << this->_name << ": " << "\x1b[0m";
-	std::cout << "I am here" << std::endl;
+	std::cout << "Mother is here" << std::endl;
 	*this = ClassToCopy;
-	this->printData("Create robot", _name);
 	return ;
 }
 
-ClapTrap::~ClapTrap() { return ; }
+ClapTrap::~ClapTrap() 
+{
+	std::cout << "\x1b[32;1m" << this->_name << ": " << "\x1b[0m";
+	std::cout << "Mother is going to sleep" << std::endl;
+	return ;
+}
 
 /*
 **	get
@@ -49,27 +74,6 @@ std::string			ClapTrap::getName(void) const {	return (this->_name); }
 int					ClapTrap::getMeleeDamage(void) const { return (this->_melee_damage); }
 int					ClapTrap::getRangedDamage(void) const {	return (this->_ranged_damage); }
 int					ClapTrap::getArmorDamageReduction(void) const {	return (this->_armor_damage_reduction); }
-
-/*
-**	set
-*/
-
-void				ClapTrap::setName(std::string name)
-{
-	std::string		old_name = this->_name;
-	
-	this->_name = name;
-	std::cout << this->_name_color << this->_name << ": " << "\x1b[0m";
-	std::cout << "The best name is " << this->_name << std::endl;
-	this->printData("Change name", old_name);
-	return ;
-}
-
-void				ClapTrap::setNameColor(std::string color)
-{
-	this->_name_color = color;
-	return ;
-}
 
 /*
 **	actions

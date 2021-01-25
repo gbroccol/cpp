@@ -106,8 +106,6 @@ void				SuperTrap::ninjaShoebox(NinjaTrap const & target)
 	NinjaTrap::ninjaShoebox(target);
 }
 
-
-
 /*
 **	overload
 */

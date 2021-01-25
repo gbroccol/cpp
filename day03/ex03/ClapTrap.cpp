@@ -14,46 +14,53 @@
 
 ClapTrap::ClapTrap(void)
 {
-	this->_hit = 25;
-	this->_hit_max = 25;
-	this->_energy = 25;
-	this->_energy_max = 25;
+	this->_hit = 100;
+	this->_hit_max = 0;
+	this->_energy = 0;
+	this->_energy_max = 0;
 	this->_level = 1;
 	this->_name = "DEFAULT NAME";
-	this->_melee_damage = 10;
-	this->_ranged_damage = 10;
-	this->_armor_damage_reduction = 10;
+	this->_name_color = "\x1b[32;1m";
+	this->_melee_damage = 0;
+	this->_ranged_damage = 0;
+	this->_armor_damage_reduction = 0;
+
+	std::cout << _name_color << this->_name << " (ClapTrap): " << "\x1b[0m";
+	std::cout << "Mother is here" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
 {
-	this->_hit = 25;
-	this->_hit_max = 25;
-	this->_energy = 25;
-	this->_energy_max = 25;
+	this->_hit = 100;
+	this->_hit_max = 0;
+	this->_energy = 0;
+	this->_energy_max = 0;
 	this->_level = 1;
 	this->_name = name;
-	this->_melee_damage = 10;
-	this->_ranged_damage = 10;
-	this->_armor_damage_reduction = 10;
-	std::cout << this->_name << " (ClapTrap): " << "\x1b[0m";
-	std::cout << "It's me, hello!!!" << std::endl;
+	this->_name_color = "\x1b[32;1m";
+	this->_melee_damage = 0;
+	this->_ranged_damage = 0;
+	this->_armor_damage_reduction = 0;
 
-	this->printData("Create robot", _name);
-	
+	std::cout << _name_color << this->_name << " (ClapTrap): " << "\x1b[0m";
+	std::cout << "Mother is here" << std::endl;
 }
-
 
 ClapTrap::ClapTrap( ClapTrap const & ClassToCopy )
 {
-	std::cout << this->_name << ": " << "\x1b[0m";
+	std::cout << this->_name << " (ClapTrap): " << "\x1b[0m";
 	std::cout << "I am here" << std::endl;
 	*this = ClassToCopy;
 	this->printData("Create robot", _name);
 	return ;
 }
 
-ClapTrap::~ClapTrap() { return ; }
+ClapTrap::~ClapTrap()
+{
+	std::cout << "\x1b[32;1m" << this->_name << " (ClapTrap): " << "\x1b[0m";
+	std::cout << "Mother is going to sleep" << std::endl;
+	return ;
+}
 
 /*
 **	get
@@ -68,27 +75,6 @@ std::string			ClapTrap::getName(void) const {	return (this->_name); }
 int					ClapTrap::getMeleeDamage(void) const { return (this->_melee_damage); }
 int					ClapTrap::getRangedDamage(void) const {	return (this->_ranged_damage); }
 int					ClapTrap::getArmorDamageReduction(void) const {	return (this->_armor_damage_reduction); }
-
-/*
-**	set
-*/
-
-void				ClapTrap::setName(std::string name)
-{
-	std::string		old_name = this->_name;
-	
-	this->_name = name;
-	std::cout << this->_name_color << this->_name << " (ClapTrap): " << "\x1b[0m";
-	std::cout << "The best name is " << this->_name << std::endl;
-	this->printData("Change name", old_name);
-	return ;
-}
-
-void				ClapTrap::setNameColor(std::string color)
-{
-	this->_name_color = color;
-	return ;
-}
 
 /*
 **	actions
@@ -136,7 +122,7 @@ void				ClapTrap::takeDamage(unsigned int amount)
 {
 	int				amount_int = amount;
 
-	std::cout << _name_color << _name << ": " << "\x1b[0m";
+	std::cout << _name_color << _name << " (ClapTrap): " << "\x1b[0m";
 	if (_hit == 0)
 	{
 		_hit = 0;
@@ -166,7 +152,7 @@ void				ClapTrap::beRepaired(unsigned int amount)
 	bool		repair = false;
 
 	/* increase hit */
-	std::cout << _name_color << _name << ": " << "\x1b[0m";
+	std::cout << _name_color << _name << " (ClapTrap): " << "\x1b[0m";
 	if (amount > 0 && amount <= 100 && _hit < (int)_hit_max && (_hit + amount) <= _hit_max)
 	{
 		repair = true;

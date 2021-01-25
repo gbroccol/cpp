@@ -19,12 +19,8 @@ int main()
 	getchar();
 	
 	std::cout << "\x1b[1;33m__________________________________________________________CREATE ROBOTS__________________________________________________________\x1b[0m" << std::endl;
-	std::cout << "\x1b[35;1m";
 	FragTrap 		dan("Dandelion");
-	dan.setNameColor("\x1b[35;1m");
-	std::cout << "\x1b[36;1m";
 	ScavTrap 		golden("The Golden Army");
-	golden.setNameColor("\x1b[36;1m");
 	std::cout << std::endl;
 	getchar();
 

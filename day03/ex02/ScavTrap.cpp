@@ -20,17 +20,18 @@ ScavTrap::ScavTrap(void)
 	_energy_max = 50;
 	_level = 1;
 	_name = "DEFAULT NAME";
+	_name_color = "\x1b[36;1m";
 	_melee_damage = 20;
 	_ranged_damage = 15;
 	_armor_damage_reduction = 3;
 
-	std::cout << _name << ": " << "\x1b[0m";
+	std::cout << _name_color << _name << ": " << "\x1b[0m";
 	std::cout << "Nice to meet you all. If anyone tries to capture me, I'll incinerate their brain" << std::endl;
 
 	printData("Create robot", _name);
 }
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap( name )
 {
 	_hit = 100;
 	_hit_max = 100;
@@ -38,10 +39,11 @@ ScavTrap::ScavTrap(std::string name)
 	_energy_max = 50;
 	_level = 1;
 	_name = name;
+	_name_color = "\x1b[36;1m";
 	_melee_damage = 20;
 	_ranged_damage = 15;
 	_armor_damage_reduction = 3;
-	std::cout << _name << ": " << "\x1b[0m";
+	std::cout << _name_color << _name << ": " << "\x1b[0m";
 	std::cout << "Should we band together, we'll survive this. Our enemies will not" << std::endl;
 
 	printData("Create robot", _name);

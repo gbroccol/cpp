@@ -27,8 +27,8 @@ class ClapTrap
 		int				_level;
 		std::string		_name;
 		std::string		_name_color;
-		int				_melee_damage; 								// ближний бой
-		int				_ranged_damage;								// дальний бой
+		int				_melee_damage;
+		int				_ranged_damage;
 		int				_armor_damage_reduction;
 		
 		void			printData(std::string action, std::string target);
@@ -50,10 +50,6 @@ class ClapTrap
 		ClapTrap( std::string Name );
 		ClapTrap( ClapTrap const & ClassToCopy );					// CONONICAL FORM
 		~ClapTrap( void );											// CONONICAL FORM
-
-		/* set */
-		void				setName(std::string);
-		void				setNameColor(std::string);
 
 		/* actions */
 		void				takeDamage(unsigned int amount);

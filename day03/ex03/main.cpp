@@ -20,17 +20,9 @@ int main()
 	getchar();
 
 	std::cout << "\x1b[1;33m__________________________________________________________CREATE ENNEMIS__________________________________________________________\x1b[0m" << std::endl;
-	std::cout << "\x1b[35;1m";
 	NinjaTrap 		DanNinja("Dandelion");
-	DanNinja.setNameColor("\x1b[35;1m");
-	
-	std::cout << "\x1b[36;1m";
 	ScavTrap 		BarScav("Barbarella");
-	BarScav.setNameColor("\x1b[36;1m");
-
-	std::cout << "\x1b[33;1m";
 	FragTrap 		BombFrag("Bomb");
-	BombFrag.setNameColor("\x1b[33;1m");
 	
 	std::cout << std::endl;
 	getchar();

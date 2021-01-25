@@ -50,10 +50,6 @@ class ClapTrap
 		int					getMeleeDamage(void) const; 
 		int					getRangedDamage(void) const; 
 		int					getArmorDamageReduction(void) const;
-		
-		/* set */
-		void				setName(std::string);
-		void				setNameColor(std::string);
 
 		/* actions */
 		void				takeDamage(unsigned int amount);
