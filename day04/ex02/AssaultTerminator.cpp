@@ -33,11 +33,28 @@ AssaultTerminator::~AssaultTerminator(void)
 	std::cout << _ColorStart << "I’ll be back..." << _ColorFinish << std::endl;
 }
 
-// AssaultTerminator		*AssaultTerminator::clone(void) const
-// {
-// 	// returns a copy of the current object
-// 	return this;
-// }
+/*
+** get
+*/
+
+std::string					AssaultTerminator::getColorStart(void) const { return (_ColorStart); }
+std::string					AssaultTerminator::getColorFinish(void) const { return (_ColorFinish); }
+
+/*
+** set
+*/
+
+void						AssaultTerminator::setColorStart(std::string value) { this->_ColorStart = value; }
+void						AssaultTerminator::setColorFinish(std::string value) { this->_ColorFinish = value; }
+
+AssaultTerminator		*AssaultTerminator::clone(void) const
+{
+	AssaultTerminator *newObj = new AssaultTerminator;
+
+	newObj->setColorStart(this->getColorStart());
+	newObj->setColorFinish(this->getColorFinish());
+	return (newObj);
+}
 
 void				AssaultTerminator::battleCry(void) const
 {
@@ -57,8 +74,9 @@ void				AssaultTerminator::meleeAttack(void) const
 /*
 ** overload
 */
-// AssaultTerminator		&AssaultTerminator::operator=(AssaultTerminator const & src)
-// {
-	
-// 	return *this;
-// }
+AssaultTerminator		&AssaultTerminator::operator=(AssaultTerminator const & src)
+{
+	_ColorStart = src.getColorStart();
+	_ColorFinish = "\x1b[0m";
+	return *this;
+}

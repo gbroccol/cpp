@@ -18,6 +18,8 @@
 
 #include "ISquad.hpp"
 #include "ISpaceMarine.hpp"
+#include "TacticalMarine.hpp"
+#include "AssaultTerminator.hpp"
 
 class Squad : public ISquad
 {

@@ -18,6 +18,9 @@
 
 // int main()
 // {
+
+	// The glory of the Emperor!
+
 // 	ISpaceMarine* bob = new TacticalMarine;
 // 	ISpaceMarine* jim = new AssaultTerminator;
 // 	std::cout << std::endl;
@@ -79,17 +82,18 @@ int main()
 		std::cout << std::endl;
 	}
 
-	std::cout << "\x1b[32m_________________________TEST: Squad::operator=__________________________\x1b[0m" << std::endl;
-	vlc_copy = *vlc;
-	for (int i = 0; i < vlc_copy.getCount(); ++i)
-	{
-		ISpaceMarine* cur = vlc_copy.getUnit(i);
-		cur->battleCry();
-		cur->rangedAttack();
-		cur->meleeAttack();
-		std::cout << std::endl;
-	}
-	// delete vlc;
+	// std::cout << "\x1b[32m_________________________TEST: Squad::operator=__________________________\x1b[0m" << std::endl;
+	// vlc_copy = *vlc;
+	// for (int i = 0; i < vlc_copy.getCount(); ++i)
+	// {
+	// 	ISpaceMarine* cur = vlc_copy.getUnit(i);
+	// 	cur->battleCry();
+	// 	cur->rangedAttack();
+	// 	cur->meleeAttack();
+	// 	std::cout << std::endl;
+	// }
+	delete vlc;
+	std::cout << std::endl;
 	return (0);
 }
 

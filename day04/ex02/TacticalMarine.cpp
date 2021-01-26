@@ -29,13 +29,29 @@ TacticalMarine::~TacticalMarine(void)
 	std::cout << _ColorStart << "Aaargh..." << _ColorFinish << std::endl;
 }
 
-// TacticalMarine		*TacticalMarine::clone(void) const
-// {
-// 	// returns a copy of the current object
 
-	
-// 	return this;
-// }
+/*
+** get
+*/
+
+std::string					TacticalMarine::getColorStart(void) const { return (_ColorStart); }
+std::string					TacticalMarine::getColorFinish(void) const { return (_ColorFinish); }
+
+/*
+** set
+*/
+
+void						TacticalMarine::setColorStart(std::string value) { this->_ColorStart = value; }
+void						TacticalMarine::setColorFinish(std::string value) { this->_ColorFinish = value; }
+
+TacticalMarine		*TacticalMarine::clone(void) const
+{
+	TacticalMarine *newObj = new TacticalMarine;
+
+	newObj->setColorStart(this->getColorStart());
+	newObj->setColorFinish(this->getColorFinish());
+	return (newObj);
+}
 
 void				TacticalMarine::battleCry(void) const
 {
@@ -55,7 +71,9 @@ void				TacticalMarine::meleeAttack(void) const
 /*
 ** overload
 */
-// TacticalMarine		&TacticalMarine::operator=(TacticalMarine const & src)
-// {
-	
-// }
+TacticalMarine		&TacticalMarine::operator=(TacticalMarine const & src)
+{
+	_ColorStart = src.getColorStart();
+	_ColorFinish = "\x1b[0m";
+	return *this;
+}

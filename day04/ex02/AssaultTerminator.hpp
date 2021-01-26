@@ -31,13 +31,21 @@ class AssaultTerminator : public ISpaceMarine
 
 		virtual ~AssaultTerminator(void);
 		
-		// virtual AssaultTerminator		*clone(void) const;
+		/* get */
+		std::string						getColorStart(void) const;
+		std::string						getColorFinish(void) const;
+
+		/* set */
+		void							setColorStart(std::string value);
+		void							setColorFinish(std::string value);
+
+		virtual AssaultTerminator		*clone(void) const;
 		virtual void					battleCry(void) const;
 		virtual void					rangedAttack(void) const;
 		virtual void 					meleeAttack(void) const;
 
 		/* overload */
-		// AssaultTerminator			&operator=(AssaultTerminator const & src);
+		AssaultTerminator			&operator=(AssaultTerminator const & src);
 };
 
 #endif

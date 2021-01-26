@@ -18,7 +18,7 @@ Squad::Squad(void) : _ColorStart("\x1b[31m"), _ColorFinish("\x1b[0m")
 	_Squad = NULL;
 }
 
-Squad::Squad( Squad const & ClassToCopy ) : _ColorStart("\x1b[31m"), _ColorFinish("\x1b[0m")
+Squad::Squad( Squad const & ClassToCopy ) : _ColorStart("\x1b[31m"), _ColorFinish("\x1b[0m") // change
 {
 	_UnitsNmb = ClassToCopy.getCount();
 	_Squad = ClassToCopy.copySquad();
@@ -89,19 +89,14 @@ void			Squad::removeSquad(void)
 
 	if (_Squad != NULL)
 	{
-		std::cout << "START" << std::endl;
-
 		while (i < _UnitsNmb)
 		{
 			delete _Squad[i];
-			std::cout << i << std::endl;
 			i++;
 		}
 		_UnitsNmb = 0;
 		delete [] _Squad;
 		_Squad = NULL;
-		
-		std::cout << "FINISH" << std::endl;
 	}
 }
 
@@ -115,8 +110,8 @@ ISpaceMarine**		Squad::copySquad() const
 		NewCopy = new ISpaceMarine * [_UnitsNmb];
 		while (_UnitsNmb > i)
 		{
-			// NewCopy[i] = new ISpaceMarine * [1];
-			NewCopy[i] = this->getUnit(i);
+			ISpaceMarine *NewUnit = this->getUnit(i)->clone();
+			NewCopy[i] = NewUnit;
 			i++;
 		}
 	}
@@ -129,6 +124,8 @@ ISpaceMarine**		Squad::copySquad() const
 
 Squad				&Squad::operator=(Squad const & src)
 {
+	_ColorStart = "\x1b[31m";
+	_ColorFinish = "\x1b[0m";
 	_UnitsNmb = src.getCount();
 	this->removeSquad();
 	_Squad = src.copySquad();

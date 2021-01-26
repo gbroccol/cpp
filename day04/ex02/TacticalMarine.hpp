@@ -33,14 +33,22 @@ class TacticalMarine : public ISpaceMarine
 		TacticalMarine( TacticalMarine const & ClassToCopy );
 
 		virtual ~TacticalMarine(void);
+
+		/* get */
+		std::string						getColorStart(void) const;
+		std::string						getColorFinish(void) const;
+
+		/* set */
+		void							setColorStart(std::string value);
+		void							setColorFinish(std::string value);
 		
-		// virtual TacticalMarine		*clone(void) const;
+		virtual TacticalMarine		*clone(void) const;
 		virtual void				battleCry(void) const;
 		virtual void				rangedAttack(void) const;
 		virtual void 				meleeAttack(void) const;
 
 		/* overload */
-		// TacticalMarine			&operator=(TacticalMarine const & src);
+		TacticalMarine			&operator=(TacticalMarine const & src);
 };
 
 #endif
