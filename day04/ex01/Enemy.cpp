@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 15:15:29 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 20:07:58 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/26 17:40:31 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ Enemy::Enemy(void) {}
 
 Enemy::Enemy( Enemy const & ClassToCopy )
 {
-	*this = ClassToCopy;
+	_HitPoints = ClassToCopy.getHP();
+	_Type = ClassToCopy.getType();
 	return ;
 }
 

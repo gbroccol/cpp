@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 11:32:32 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 12:33:42 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/26 17:33:20 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Victim
 {
 private:
 	
-	Victim(void);											// CONONICAL FORM
+	Victim(void);
 	
 protected:
 
@@ -29,8 +29,8 @@ protected:
 public:
 	
 	Victim(std::string name);
-	Victim( Victim const & ClassToCopy );					// CONONICAL FORM
-	virtual ~Victim();										// CONONICAL FORM
+	Victim( Victim const & ClassToCopy );
+	virtual ~Victim();
 
 	/* get */
 	std::string			getName() const;
@@ -39,7 +39,7 @@ public:
 	virtual void		getPolymorphed() const;
 
 	/* overload */
-	Victim				&operator=(Victim const & src);		// CONONICAL FORM
+	Victim				&operator=(Victim const & src);
 
 };
 

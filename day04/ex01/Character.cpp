@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:28:30 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 20:07:29 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/26 17:49:57 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,13 @@ Character::Character(std::string const & name) : _Name(name), _AP(40), _MyWeapon
 
 Character::Character( Character const & ClassToCopy )
 {
-	*this = ClassToCopy;
+	_Name = ClassToCopy.getName();
+	_AP = ClassToCopy.getAP();
+	_MyWeapon = ClassToCopy.getWeapon();
 	return ;
 }
 
-Character::~Character()
-{
-	
-}
+Character::~Character() {}
 	
 void					Character::recoverAP()
 {
@@ -72,6 +71,7 @@ void					Character::attack(Enemy *enemy)
 /*
 ** get
 */
+
 std::string 				Character::getName() const { return (_Name); }
 int							Character::getAP() const { return (_AP); }
 AWeapon						*Character::getWeapon() const { return (_MyWeapon); }
@@ -79,11 +79,12 @@ AWeapon						*Character::getWeapon() const { return (_MyWeapon); }
 /*
 ** overload
 */
+
 Character			&Character::operator=(Character const & src)
 {
-	this->_Name = src.getName();
-	this->_AP = src.getAP();
-	this->_MyWeapon = src.getWeapon();
+	_Name = src.getName();
+	_AP = src.getAP();
+	_MyWeapon = src.getWeapon();
 	return *this;
 }
 

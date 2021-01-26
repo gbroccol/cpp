@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 14:01:21 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 19:54:22 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/26 17:45:46 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,16 @@
 
 AWeapon::AWeapon(void) {}
 
-AWeapon::AWeapon(std::string const & name, int apcost, int damage) : _Name(name), _Damage(damage), _APCost(apcost)
-{
-	
-}
+AWeapon::AWeapon(std::string const & name, int apcost, int damage) : _Name(name), _Damage(damage), _APCost(apcost) {}
 
 AWeapon::AWeapon( AWeapon const & ClassToCopy )
 {
-	*this = ClassToCopy;
-	return ;
+	_Name = ClassToCopy.getName();
+	_Damage = ClassToCopy.getDamage();
+	_APCost = ClassToCopy.getAPCost();
 }
 
-AWeapon::~AWeapon()
-{
-	
-}
+AWeapon::~AWeapon() {}
 
 /*
 ** get

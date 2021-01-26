@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 11:55:31 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 12:37:23 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/26 17:34:20 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ Peon::Peon(std::string name) : Victim( name )
 
 Peon::Peon( Peon const & ClassToCopy ) : Victim( ClassToCopy )
 {
-	*this = ClassToCopy;
 	return ;
 }
 

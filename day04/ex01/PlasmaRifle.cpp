@@ -6,26 +6,17 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 14:46:34 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 19:52:40 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/26 17:47:40 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PlasmaRifle.hpp"
 
-PlasmaRifle::PlasmaRifle(void) : AWeapon("Plasma Rifle", 5, 21) // name // AP cost // Damage
-{
-}
+PlasmaRifle::PlasmaRifle(void) : AWeapon("Plasma Rifle", 5, 21) {}
 
-PlasmaRifle::PlasmaRifle( PlasmaRifle const & ClassToCopy ) : AWeapon(ClassToCopy.getName(), ClassToCopy.getAPCost(), ClassToCopy.getDamage())
-{
-	// *this = ClassToCopy;
-	return ;
-}
+PlasmaRifle::PlasmaRifle( PlasmaRifle const & ClassToCopy ) : AWeapon( ClassToCopy ) {}
 
-PlasmaRifle::~PlasmaRifle()
-{
-	
-}
+PlasmaRifle::~PlasmaRifle() {}
 
 /*
 ** attack

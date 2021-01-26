@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 11:22:57 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 12:39:05 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/26 17:37:26 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,19 @@ private:
 
 public:
 	
-	Sorcerer(std::string name, std::string title);				// CONONICAL FORM
-	Sorcerer( Sorcerer const & ClassToCopy );					// CONONICAL FORM
-	~Sorcerer();												// CONONICAL FORM
+	Sorcerer(std::string name, std::string title);
+	Sorcerer( Sorcerer const & ClassToCopy );
+	~Sorcerer(void);
 
 	/* get */
-	std::string			getName() const;
-	std::string			getTitle() const;
+	std::string			getName(void) const;
+	std::string			getTitle(void) const;
 
 	/* polymorph */
 	void				polymorph(Victim const &vic) const;
 
 	/* overload */
-	Sorcerer			&operator=(Sorcerer const & src);		// CONONICAL FORM
+	Sorcerer			&operator=(Sorcerer const & src);
 
 };
 

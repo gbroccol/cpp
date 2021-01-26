@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 11:22:52 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 12:21:46 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/26 17:38:12 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ Sorcerer::Sorcerer(std::string name, std::string title) : _name(name), _title(ti
 
 Sorcerer::Sorcerer( Sorcerer const & ClassToCopy )
 {
-	*this = ClassToCopy;
+	_name = ClassToCopy.getName();
+	_title = ClassToCopy.getTitle();
 	return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:16:59 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 19:53:11 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/26 17:41:52 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,7 @@ RadScorpion::RadScorpion(void) : Enemy(80, "RadScorpion")
 	std::cout << "* click click click *" << std::endl;
 }
 
-RadScorpion::RadScorpion( RadScorpion const & ClassToCopy )
-{
-	*this = ClassToCopy;
-	return ;
-}
+RadScorpion::RadScorpion( RadScorpion const & ClassToCopy ) : Enemy( ClassToCopy ) {}
 
 RadScorpion::~RadScorpion()
 {

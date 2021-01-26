@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 20:33:43 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 20:58:41 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/26 18:14:26 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ class ISpaceMarine
 	private:
 		
 	public:
-
-		virtual ~ISpaceMarine() {}
-		virtual ISpaceMarine* clone() const = 0;
+		virtual ~ISpaceMarine() {};
+		// virtual ISpaceMarine* clone() const = 0;
 		virtual void battleCry() const = 0;
 		virtual void rangedAttack() const = 0;
 		virtual void meleeAttack() const = 0;

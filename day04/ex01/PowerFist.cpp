@@ -6,27 +6,17 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 14:58:36 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 19:52:55 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/26 17:49:09 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PowerFist.hpp"
 
-PowerFist::PowerFist(void) : AWeapon("Power Fist", 8, 50) // name // AP cost // Damage
-{
-	
-}
+PowerFist::PowerFist(void) : AWeapon("Power Fist", 8, 50) {}
 
-PowerFist::PowerFist( PowerFist const & ClassToCopy ) : AWeapon(ClassToCopy.getName(), ClassToCopy.getAPCost(), ClassToCopy.getDamage())
-{
-	// *this = ClassToCopy;
-	return ;
-}
+PowerFist::PowerFist( PowerFist const & ClassToCopy ) : AWeapon( ClassToCopy ) {}
 
-PowerFist::~PowerFist()
-{
-	
-}
+PowerFist::~PowerFist() {}
 
 /*
 ** attack

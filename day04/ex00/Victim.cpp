@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 11:34:31 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 12:18:44 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/26 17:33:47 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Victim::Victim(std::string name) : _name(name)
 
 Victim::Victim( Victim const & ClassToCopy )
 {
-	*this = ClassToCopy;
+	_name = ClassToCopy.getName();
 	return ;
 }
 

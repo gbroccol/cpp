@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 17:21:15 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/25 18:36:12 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/26 17:43:41 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,3 @@ class Character
 std::ostream & operator<<(std::ostream & o, Character const & src);
 
 #endif
-
