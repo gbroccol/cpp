@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 16:25:37 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/21 20:09:10 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/26 17:30:16 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 
 class ClapTrap
 {
-	public:
-	// protected:
+	protected:
 		
 		int				_hit;
 		unsigned int	_hit_max;
@@ -34,7 +33,7 @@ class ClapTrap
 		
 		void			printData(std::string action, std::string target);
 		
-	// public:
+	public:
 
 		ClapTrap( void );											// CONONICAL FORM
 		ClapTrap( std::string Name );
