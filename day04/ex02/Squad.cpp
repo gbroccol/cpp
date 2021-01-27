@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 20:51:21 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/26 21:54:26 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/27 13:56:50 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,16 @@ Squad::Squad(void) : _ColorStart("\x1b[31m"), _ColorFinish("\x1b[0m")
 	_Squad = NULL;
 }
 
-Squad::Squad( Squad const & ClassToCopy ) : _ColorStart("\x1b[31m"), _ColorFinish("\x1b[0m") // change
+Squad::Squad( Squad const & ClassToCopy ) 
 {
 	_UnitsNmb = ClassToCopy.getCount();
 	_Squad = ClassToCopy.copySquad();
+	_ColorStart = getColorStart();
+	_ColorFinish = getColorFinish();
 	return ;
 }
 
-Squad::~Squad(void)
+Squad::~Squad(void) 
 {
 	removeSquad();
 }
@@ -33,9 +35,11 @@ Squad::~Squad(void)
 /*
 ** get
 */
-int					Squad::getCount() const { return(_UnitsNmb); }
+int					Squad::getCount() const { return(_UnitsNmb); } 
+std::string			Squad::getColorStart(void) const { return (_ColorStart); } 
+std::string			Squad::getColorFinish(void) const { return (_ColorFinish); } 
 
-ISpaceMarine		*Squad::getUnit(int unit) const
+ISpaceMarine		*Squad::getUnit(int unit) const 
 {
 	if (unit <= _UnitsNmb)
 	{
@@ -47,7 +51,7 @@ ISpaceMarine		*Squad::getUnit(int unit) const
 	return (NULL);
 }
 
-int					Squad::push(ISpaceMarine *NewUnit)
+int					Squad::push(ISpaceMarine *NewUnit) 
 {
 	int i;
 
@@ -66,6 +70,7 @@ int					Squad::push(ISpaceMarine *NewUnit)
 	}
 	if (NewUnit != NULL)
 	{
+		std::cout << _ColorStart << "Start adding" << _ColorFinish << std::endl;
 		ISpaceMarine **newSquad = new ISpaceMarine * [_UnitsNmb + 1];
 		
 		i = 0;
@@ -76,6 +81,8 @@ int					Squad::push(ISpaceMarine *NewUnit)
 		}
 		newSquad[i] = NewUnit;
 		_UnitsNmb++;
+		delete [] _Squad;
+		_Squad = NULL;
 		_Squad = newSquad;
 	}
 	else
@@ -83,7 +90,7 @@ int					Squad::push(ISpaceMarine *NewUnit)
 	return (_UnitsNmb);
 }
 
-void			Squad::removeSquad(void)
+void			Squad::removeSquad(void) 
 {
 	int i = 0;
 
@@ -100,7 +107,7 @@ void			Squad::removeSquad(void)
 	}
 }
 
-ISpaceMarine**		Squad::copySquad() const
+ISpaceMarine**		Squad::copySquad() const 
 {
 	ISpaceMarine**	NewCopy = NULL;
 
@@ -122,12 +129,14 @@ ISpaceMarine**		Squad::copySquad() const
 ** overload
 */
 
-Squad				&Squad::operator=(Squad const & src)
+Squad				&Squad::operator=(Squad const & src) 
 {
-	_ColorStart = "\x1b[31m";
-	_ColorFinish = "\x1b[0m";
-	_UnitsNmb = src.getCount();
 	this->removeSquad();
-	_Squad = src.copySquad();
+	std::cout << std::endl;
+	this->_Squad = src.copySquad();
+	
+	this->_ColorStart = "\x1b[31m";
+	this->_ColorFinish = "\x1b[0m";
+	this->_UnitsNmb = src.getCount();
 	return *this;
 }

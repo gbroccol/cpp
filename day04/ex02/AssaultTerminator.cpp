@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 12:47:00 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/26 20:27:20 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/27 13:40:18 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,8 @@ AssaultTerminator::AssaultTerminator(void) : _ColorStart("\x1b[33m"), _ColorFini
 AssaultTerminator::AssaultTerminator( AssaultTerminator const & ClassToCopy )
 {
 	std::cout << _ColorStart << "* teleports from space *" << _ColorFinish << std::endl;
-	*this = ClassToCopy;
-
-
-
-	
+	_ColorStart = ClassToCopy.getColorStart();
+	_ColorFinish = ClassToCopy.getColorFinish();
 	return ;
 }
 
@@ -77,6 +74,6 @@ void				AssaultTerminator::meleeAttack(void) const
 AssaultTerminator		&AssaultTerminator::operator=(AssaultTerminator const & src)
 {
 	_ColorStart = src.getColorStart();
-	_ColorFinish = "\x1b[0m";
+	_ColorFinish = src.getColorFinish();
 	return *this;
 }

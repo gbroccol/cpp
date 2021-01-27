@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 20:37:53 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/26 21:28:10 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/27 12:58:53 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Squad : public ISquad
 	private:
 
 		int					_UnitsNmb;
-		ISpaceMarine**		_Squad;
+		ISpaceMarine**		_Squad;								// check *
 		
 		std::string			_ColorStart;
 		std::string			_ColorFinish;
@@ -40,8 +40,12 @@ class Squad : public ISquad
 		Squad( Squad const & ClassToCopy );	
 		virtual ~Squad(void);
 		
+		/* get */
 		virtual int					getCount(void) const;
 		virtual ISpaceMarine		*getUnit(int unit) const;
+		std::string					getColorStart(void) const;
+		std::string					getColorFinish(void) const;
+		
 		virtual int					push(ISpaceMarine *NewUnit);
 	
 		/* overload */

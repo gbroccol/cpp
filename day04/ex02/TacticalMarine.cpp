@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 12:32:43 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/26 20:24:04 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/27 13:40:36 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ TacticalMarine::TacticalMarine(void) : _ColorStart("\x1b[34m"), _ColorFinish("\x
 TacticalMarine::TacticalMarine( TacticalMarine const & ClassToCopy )
 {
 	std::cout << _ColorStart << "Tactical Marine ready for battle!" << _ColorFinish << std::endl;
-	*this = ClassToCopy;
+	_ColorStart = ClassToCopy.getColorStart();
+	_ColorFinish = ClassToCopy.getColorFinish();
 	return ;
 }
 
@@ -74,6 +75,6 @@ void				TacticalMarine::meleeAttack(void) const
 TacticalMarine		&TacticalMarine::operator=(TacticalMarine const & src)
 {
 	_ColorStart = src.getColorStart();
-	_ColorFinish = "\x1b[0m";
+	_ColorFinish = src.getColorFinish();
 	return *this;
 }
