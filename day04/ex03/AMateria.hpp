@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 14:07:30 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/27 20:36:25 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/28 13:15:31 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class AMateria
 
 		std::string				_Type;
 		unsigned int			_XP;
-		AMateria( void ); // move to private
+		AMateria( void );
 		
 	public:
 	

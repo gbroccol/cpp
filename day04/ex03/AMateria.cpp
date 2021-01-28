@@ -6,15 +6,21 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 14:07:28 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/27 20:44:38 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/28 18:34:24 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
-AMateria::AMateria( void )  : _Type("TYPE_DEFINE"), _XP(0) {}
+AMateria::AMateria( void )  : _Type("TYPE_DEFINE"), _XP(0)
+{
+	// std::cout << "\x1b[36m" << "Create AMateria (" << _Type << ") CONSTRUCTOR" << "\x1b[0m" << std::endl;
+}
 
-AMateria::AMateria( std::string const & type ) : _Type(type), _XP(0) {}
+AMateria::AMateria( std::string const & type ) : _Type(type), _XP(0)
+{
+	// std::cout << "\x1b[36m" << "Create AMateria (" << _Type << ") CONSTRUCTOR" << "\x1b[0m" << std::endl;
+}
 
 AMateria::AMateria( AMateria const & ClassToCopy )
 {

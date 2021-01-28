@@ -6,28 +6,20 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 14:07:48 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/27 21:00:25 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/28 18:33:42 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice( void ) : AMateria ("ice")
-{
-	_Type = "ice";
-	_XP = 0;
-}
+Ice::Ice( void ) : AMateria ("ice") {}
 
-Ice::Ice( std::string const & type ) : AMateria (type)
-{
-	_Type = type;
-	_XP = 0;
-}
+Ice::Ice( std::string const & type ) : AMateria (type) {}
 
-Ice::Ice( Ice const & ClassToCopy )
+Ice::Ice( Ice const & src )
 {
-	_Type = getType();
-	_XP = getXP();
+	_Type = src.getType();
+	_XP = src.getXP();
 }
 
 Ice::~Ice(void) {}
@@ -44,6 +36,7 @@ void								Ice::use(ICharacter &target)
 {
 	_XP += 10;
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+	// std::cout << "I have " << _XP << " now! Wow!" << std::endl;
 }
 
 /* 

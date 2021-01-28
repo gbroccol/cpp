@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 14:07:40 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/27 19:23:37 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/28 12:57:02 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Character : public ICharacter
 private:
 	
 	std::string			_Name;
-	AMateria			**_MyMater;
+	AMateria			*_MyMater[4];
 	int					_MaterMax;			// add const
 	int					_MaterAmount;
 	Character(void);

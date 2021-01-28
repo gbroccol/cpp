@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 20:59:05 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/27 13:59:47 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/28 18:35:36 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@
 // 	}
 // 	getchar();
 // 	delete vlc;
-// 	std::cout << "\x1b[32m_________________________Check leaks__________________________\x1b[0m" << std::endl;
-// 	getchar();
 // 	return (0);
 // }
 
@@ -86,8 +84,6 @@
 // 		cur->meleeAttack();
 // 		std::cout << std::endl;
 // 	}
-// 	std::cout << "\x1b[32m_________________________Check leaks__________________________\x1b[0m" << std::endl;
-// 	getchar();
 	
 // 	std::cout << "\x1b[32m_________________________The glory of the Emperor!__________________________\x1b[0m" << std::endl;
 
@@ -112,8 +108,6 @@
 
 // 	delete vlc;
 // 	std::cout << std::endl;
-// 	std::cout << "\x1b[32m_________________________Check leaks__________________________\x1b[0m" << std::endl;
-// 	getchar();
 // 	return (0);
 // }
 
@@ -143,8 +137,6 @@
 // 	std::cout << std::endl;
 	
 // 	delete vlc;
-// 	std::cout << "\x1b[32m_________________________Check leaks__________________________\x1b[0m" << std::endl;
-// 	getchar();
 // 	return 0;
 // }
 
@@ -169,8 +161,6 @@ int main()										// main in subject
 	
 	delete vlc;
 	std::cout << "\x1b[0m" << std::endl;
-	std::cout << "\x1b[32m_________________________Check leaks__________________________\x1b[0m" << std::endl;
-	getchar();
 	return 0;
 }
 

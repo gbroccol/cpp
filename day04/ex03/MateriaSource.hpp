@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 14:08:02 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/27 20:34:58 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/28 12:32:26 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,25 @@ class MateriaSource : public IMateriaSource
 {
 private:
 	
+	AMateria		*_MatArray[4];
 	int				_Amount;
 	int				_MaxAmount;
-	AMateria		**_MatArray;
 	
 public:
 	MateriaSource(void);
-	MateriaSource(MateriaSource const & ClassToCopy);
+	MateriaSource(MateriaSource const & src);
 	virtual ~MateriaSource(void);
 	
-	virtual void learnMateria(AMateria *mater);
-	virtual AMateria* createMateria(std::string const & type);
+	/* get */
+	int							getAmount(void) const;
+	int							getMaxAmount(void) const;
+	
+	virtual void 				learnMateria(AMateria *mater);
+	virtual AMateria* 			createMateria(std::string const & type);
+	// AMateria**				copyMatArray() const ;
 	
 	/* overload */
-	MateriaSource						& operator=(MateriaSource const & src);
+	MateriaSource &				operator=(MateriaSource const & src);
 	
 };
 

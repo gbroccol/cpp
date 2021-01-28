@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 14:07:46 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/27 19:02:08 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/28 16:14:51 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,8 @@ class Cure : public AMateria
 		Cure( Cure const & ClassToCopy );
 		~Cure(void);
 		
-		/* get */
-		std::string const 					& getType(void) const;
-		unsigned int						getXP(void) const;
-
-		/* set */
-		void 								setType(std::string type);
-		void								setXP(unsigned int xp);
-		
 		virtual Cure							*clone(void) const;
-		virtual void						use(ICharacter &target);
+		virtual void							use(ICharacter &target);
 
 		/* overload */
 		Cure									&operator=(Cure const & src);
