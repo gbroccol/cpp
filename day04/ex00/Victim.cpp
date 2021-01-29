@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 11:34:31 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/26 17:33:47 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/29 13:00:11 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Victim::Victim(std::string name) : _name(name)
 Victim::Victim( Victim const & ClassToCopy )
 {
 	_name = ClassToCopy.getName();
+	std::cout << "Some random victim called " << _name << " just appeared!" << std::endl;
 	return ;
 }
 
@@ -40,7 +41,7 @@ std::string			Victim::getName() const { return (this->_name); }
 */
 void				Victim::getPolymorphed() const
 {
-	std::cout << _name << " has been turned into a pink pony!" << std::endl;
+	std::cout << _name << " has been turned into a cute little sheep!" << std::endl;
 }
 
 /*

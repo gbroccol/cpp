@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/25 20:51:21 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/27 13:56:50 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/01/29 14:52:53 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int					Squad::push(ISpaceMarine *NewUnit)
 	}
 	if (NewUnit != NULL)
 	{
-		std::cout << _ColorStart << "Start adding" << _ColorFinish << std::endl;
+		// std::cout << _ColorStart << "Start adding" << _ColorFinish << std::endl;
 		ISpaceMarine **newSquad = new ISpaceMarine * [_UnitsNmb + 1];
 		
 		i = 0;
