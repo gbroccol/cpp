@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:43:51 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/04 17:09:57 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/04 19:26:45 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,18 @@ Form &				Form::operator=( Form const & rhs )
 std::ostream &			operator<<( std::ostream & o, Form const & i )
 {
 	if (i.getValue())
-		o << i.getName() << ", form is signed.";
+	{
+		o << i.getName() << ", form is signed. ";
+		o << "\x1b[32mValue to execute is " << i.getExecuteGrade() << "\x1b[0m" << std::endl;
+	}
 	else
-		o << i.getName() << ", form is unsigned.";
-	o << " Value to sign is " << i.getSignGrade();
-	o << ". Value to execute is " << i.getExecuteGrade() << std::endl;
+	{
+		o << i.getName() << ", form is not signed. ";
+		o << "\x1b[32mValue to sign is " << i.getSignGrade() << "\x1b[0m" << std::endl;
+	}
+		
+	
+	
 	return o;
 }
 
@@ -80,6 +87,11 @@ const char * Form::GradeTooLowException::what(void) const throw()
 const char * Form::NullException::what(void) const throw()
 {
 	return "Error. Argument is NULL";
+}
+
+const char * Form::FormIsNotSignedException::what(void) const throw()
+{
+	return "Error. Form is not signed. Sign it to execute";
 }
 
 /*
@@ -114,7 +126,6 @@ int								Form::getExecuteGrade() const
 	return(_ExecuteGrade);
 }
 
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
@@ -130,6 +141,17 @@ void							Form::beSigned(Bureaucrat &person)
 	}
 	else
 		throw GradeTooLowException();
+}
+
+bool							Form::accessExecute(Bureaucrat const &person) const
+{
+	if (this == nullptr)
+		throw NullException();
+	if (person.getGrade() > _ExecuteGrade)
+		throw GradeTooLowException();
+	else if (_Value == false)
+		throw FormIsNotSignedException();
+	return (true);
 }
 
 /*

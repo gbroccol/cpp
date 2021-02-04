@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:36:39 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/04 15:59:41 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/04 16:22:48 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,17 @@ void						Bureaucrat::decrementGrade(void)
 	_Grade++;
 }
 
+bool						Bureaucrat::signForm(Form &form)
+{
+	if (form.getValue())
+	{
+		std::cout << _Name << " cannot sign " << form.getName() << " because the form is already signed" << std::endl;
+		return (false);
+	}
+	else
+		std::cout << _Name << " signs " << form.getName() << std::endl;
+	return (true);
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

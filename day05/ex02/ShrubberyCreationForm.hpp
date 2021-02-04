@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:46:39 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/29 15:46:40 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/04 19:14:02 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,28 @@
 # include <iostream>
 # include <string>
 
-class ShrubberyCreationForm
+#include "Form.hpp"
+
+class ShrubberyCreationForm : public Form
 {
 
 	public:
 
-		ShrubberyCreationForm();
+		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm( ShrubberyCreationForm const & src );
-		~ShrubberyCreationForm();
+		~ShrubberyCreationForm(void);
 
 		ShrubberyCreationForm &		operator=( ShrubberyCreationForm const & rhs );
 
+		virtual void					execute(Bureaucrat const & executor) const;
+
 	private:
+
+		std::string			_Target;
+		ShrubberyCreationForm(void);
 
 };
 
-std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i );
+// std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i );
 
 #endif /* ******************************************* SHRUBBERYCREATIONFORM_H */

@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:36:39 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/04 15:59:41 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/04 19:30:57 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, Bureaucrat const & i )
 {
-	o << i.getName() << ", bureaucrat grade " << i.getGrade() << std::endl;
+	o << "\x1b[34m" << i.getName() << ", bureaucrat grade " << i.getGrade() << "\x1b[0m" << std::endl;
 	return o;
 }
 
@@ -116,6 +116,23 @@ void						Bureaucrat::decrementGrade(void)
 	_Grade++;
 }
 
+bool						Bureaucrat::signForm(Form &form)
+{
+	if (form.getValue())
+	{
+		std::cout << _Name << " cannot sign " << form.getName() << " because the form is already signed" << std::endl;
+		return (false);
+	}
+	else
+		std::cout << _Name << " signs " << form.getName() << std::endl;
+	return (true);
+}
+
+void						Bureaucrat::executeForm(Form const & form)
+{
+	form.execute(*this);
+	std::cout << this->_Name << " executed " << form.getName() << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
