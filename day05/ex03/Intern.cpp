@@ -16,48 +16,69 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Intern::Intern()
-{
-}
+Intern::Intern() : _MyForms(0) {}
 
-Intern::Intern( const Intern & src )
-{
-}
-
+// Intern::Intern( const Intern & src )
+// {
+// 	_MyForms = src.getMyForms();
+// }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Intern::~Intern()
-{
-}
-
+Intern::~Intern() {}
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Intern &				Intern::operator=( Intern const & rhs )
-{
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
-	return *this;
-}
+// Intern &				Intern::operator=( Intern const & rhs )
+// {
+// 	if ( this != &rhs )
+// 	{
+// 		_MyForms = rhs.getMyForms();
+// 	}
+// 	return *this;
+// }
 
-std::ostream &			operator<<( std::ostream & o, Intern const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
+/*
+** --------------------------------- GET ----------------------------------
+*/
 
+int						Intern::getMyForms() { return(_MyForms); }
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
+Form *					Intern::makeForm(std::string form_name, std::string target)
+{
+	Form *result;
+
+	if (form_name == "shrubbery creation")
+	{
+		result = new ShrubberyCreationForm(target);
+		std::cout << "Intern creates a ShrubberyCreationForm" << std::endl;
+	}
+	else if (form_name == "robotomy request")
+	{
+		result = new RobotomyRequestForm(target);
+		std::cout << "Intern creates a RobotomyRequestForm" << std::endl;
+	}
+	else if (form_name == "presidential pardon")
+	{
+		result = new PresidentialPardonForm(target);
+		std::cout << "Intern creates a PresidentialPardonForm" << std::endl;
+	}
+	else
+	{
+		throw std::invalid_argument("Error. Requested form is not known");
+		return (NULL);
+	}
+	_MyForms++;
+	return result;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

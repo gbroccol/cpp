@@ -18,18 +18,26 @@
 
 int main(void)
 {
-	// std::string input;
 	ShrubberyCreationForm formS("forest");
-	// RobotomyRequestForm formR("Jim");
-	// PresidentialPardonForm formP("Arthur Dent");
-
-	// Bureaucrat person3("Jim", 72);
-	// Bureaucrat person4("Tim", 45);
-
-	// Bureaucrat person5("Jim", 25);
-	// Bureaucrat person6("Tim", 5);
+	RobotomyRequestForm formR("Jim");
+	PresidentialPardonForm formP("Arthur Dent");
 
 	std::cout << "\x1b[33;1m_________________________Test 1__________________________\x1b[0m" << std::endl;
+	try
+	{
+		Bureaucrat person("Tim", 138);
+	
+		std::cout << person;
+		std::cout << formS;
+		person.executeForm(formS);
+	}
+	catch (std::exception & e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	getchar();
+
+	std::cout << "\x1b[33;1m_________________________Test 2__________________________\x1b[0m" << std::endl;
 	try
 	{
 		Bureaucrat person("Jim", 145);
@@ -50,7 +58,7 @@ int main(void)
 	}
 	getchar();
 
-	std::cout << "\x1b[33;1m_________________________Test 2__________________________\x1b[0m" << std::endl;
+	std::cout << "\x1b[33;1m_________________________Test 3__________________________\x1b[0m" << std::endl;
 	try
 	{
 		Bureaucrat person2("Tim", 137);
@@ -63,87 +71,63 @@ int main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	
-	// ROBOTOMY TEST
-	// try
-	// {
-	// 	std::cout << formR;
-	// 	formR.beSigned(person3);
-	// 	std::cout << formR;
-	// 	std::cout << std::endl;
-	// 	person4.executeForm(formR);
-	// 	std::cout << std::endl;
-	// 	person4.executeForm(formR);
-	// 	std::cout << std::endl;
-	// 	person4.executeForm(formR);
-	// 	std::cout << std::endl;
-	// 	person4.executeForm(formR);
-	// 	std::cout << std::endl;
-	// 	person4.executeForm(formR);
-	// 	std::cout << std::endl;
-	// 	person4.executeForm(formR);
-	// 	std::cout << "*********" << std::endl;
-	// 	std::getline(std::cin, input);
-	// 	std::system("clear");
-	// }
-	// catch (std::exception & e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// 	std::cout << "*********" << std::endl;
-	// }
+	getchar();
 
-	// PRESIDENTIAL PARDON TEST
-	// try
-	// {
-	// 	std::cout << formP;
-	// 	formP.beSigned(person5);
-	// 	std::cout << formP;
-	// 	std::cout << std::endl;
-	// 	person6.executeForm(formP);
-	// 	std::cout << "*********" << std::endl;
-	// }
-	// catch (std::exception & e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// 	std::cout << "*********" << std::endl;
-	// }
-	
+	std::cout << "\x1b[33;1m_________________________Test 4__________________________\x1b[0m" << std::endl;
+	try
+	{
+		Bureaucrat Jim("Jim", 72);
+		Bureaucrat Tim("Tim", 45);
+
+		std::cout << Jim;
+		std::cout << formR;
+		formR.beSigned(Jim);
+		std::cout << std::endl;
+
+		std::cout << Tim;
+		std::cout << formR;
+		Tim.executeForm(formR);
+		std::cout << std::endl;
+
+		Tim.executeForm(formR);
+		std::cout << std::endl;
+
+		Tim.executeForm(formR);
+		std::cout << std::endl;
+
+		Tim.executeForm(formR);
+		std::cout << std::endl;
+
+		Tim.executeForm(formR);
+		std::cout << std::endl;
+
+		Tim.executeForm(formR);
+	}
+	catch (std::exception & e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	getchar();
+
+	std::cout << "\x1b[33;1m_________________________Test 5__________________________\x1b[0m" << std::endl;
+	try
+	{
+		Bureaucrat Jim("Jim", 25);
+		Bureaucrat Tim("Tim", 5);
+
+		std::cout << Jim;
+		std::cout << formP;
+		formP.beSigned(Jim);
+		std::cout << std::endl;
+
+		std::cout << Tim;
+		std::cout << formP;
+		Tim.executeForm(formP);
+		std::cout << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	return 0;
 }
-
-
-
-// int main(){
-// 	RobotomyRequestForm	r("foo");
-// 	PresidentialPardonForm p;
-// 	ShrubberyCreationForm s;
-// 	Bureaucrat	b;
-// 	b.setGrade(60);
-// 	b.executeForm(r);
-// 	b.executeForm(p);
-// 	b.executeForm(s);
-// 	b.signForm(p);
-// 	b.signForm(r);
-// 	b.signForm(s);
-// 	p.execute(b);
-// 	r.execute(b);
-// 	r.execute(b);
-// 	r.execute(b);
-// 	r.execute(b);
-// 	s.execute(b);
-// 	b.setGrade(1);
-// 	b.signForm(p);
-// 	b.signForm(r);
-// 	b.signForm(s);
-// 	p.execute(b);
-// 	r.execute(b);
-// 	r.execute(b);
-// 	r.execute(b);
-// 	r.execute(b);
-// 	s.execute(b);
-
-// 	b.executeForm(r);
-// 	b.executeForm(p);
-// 	b.executeForm(s);
-// 	return 0;
-// }

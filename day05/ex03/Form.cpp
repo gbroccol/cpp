@@ -24,6 +24,8 @@ Form::Form(std::string name, int sign, int execute) : _Name(name), _SignGrade(si
 		throw GradeTooLowException();
 	else if (sign < HIGHEST_GRADE || execute < HIGHEST_GRADE)
 		throw GradeTooHighException();
+
+	std::cout << _Name << " created" << std::endl;
 }
 
 Form::Form( const Form & src ) : _Name(src.getName()), _SignGrade(src.getSignGrade()), _ExecuteGrade(src.getExecuteGrade()), _Value(src.getValue())
