@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:48:01 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/04 19:42:40 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/05 12:31:31 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void					RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	accessExecute(executor);
 
-	std::cout << "*** DRILLING NOISES ***" << std::endl;
+	std::cout << "*** Drrr Drrr DRRR ***" << std::endl;
 	
 	srand(rand() % 1000);
 	if (std::rand() % 2 == 0) // note

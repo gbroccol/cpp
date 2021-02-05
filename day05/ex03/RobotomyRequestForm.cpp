@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:48:01 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/04 19:42:40 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/05 13:33:58 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 
 RobotomyRequestForm::RobotomyRequestForm() {}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("RobotomyRequestForm", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form(target, 72, 45)
 {
 	_Target = target;
 }
 
 RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ) : Form(src)
 {
-	// if (this == nullptr)
-	// 	throw NullException();
+	if (this == nullptr)
+		throw NullException();
 	_Target = src._Target;
 }
 
@@ -49,11 +49,11 @@ RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm con
 	return *this;
 }
 
-// std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i )
-// {
-// 	//o << "Value = " << i.getValue();
-// 	return o;
-// }
+std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i )
+{
+	o << "Value = " << i.getExecuteGrade();
+	return o;
+}
 
 
 /*
@@ -64,7 +64,7 @@ void					RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	accessExecute(executor);
 
-	std::cout << "*** DRILLING NOISES ***" << std::endl;
+	std::cout << "*** Drrr Drrr DRRR ***" << std::endl;
 	
 	srand(rand() % 1000);
 	if (std::rand() % 2 == 0) // note

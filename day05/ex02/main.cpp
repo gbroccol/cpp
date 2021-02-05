@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:41:32 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/04 19:43:16 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/05 12:37:02 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int main(void)
 
 		std::cout << person2;
 		std::cout << formS;
-		person2.executeForm(formS);
+		formS.beSigned(person2);
 	}
 	catch (std::exception & e)
 	{
@@ -74,6 +74,21 @@ int main(void)
 	getchar();
 
 	std::cout << "\x1b[33;1m_________________________Test 4__________________________\x1b[0m" << std::endl;
+	try
+	{
+		Bureaucrat person2("Tim", 137);
+
+		std::cout << person2;
+		std::cout << formS;
+		person2.executeForm(formS);
+	}
+	catch (std::exception & e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	getchar();
+
+	std::cout << "\x1b[33;1m_________________________Test 5__________________________\x1b[0m" << std::endl;
 	try
 	{
 		Bureaucrat Jim("Jim", 72);
@@ -109,7 +124,7 @@ int main(void)
 	}
 	getchar();
 
-	std::cout << "\x1b[33;1m_________________________Test 5__________________________\x1b[0m" << std::endl;
+	std::cout << "\x1b[33;1m_________________________Test 6__________________________\x1b[0m" << std::endl;
 	try
 	{
 		Bureaucrat Jim("Jim", 25);

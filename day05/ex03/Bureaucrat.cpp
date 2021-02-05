@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:36:39 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/04 19:30:57 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/05 13:14:02 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ Bureaucrat::Bureaucrat( std::string name, int grade) : _Name(name)
 
 Bureaucrat::Bureaucrat( const Bureaucrat & src ) : _Name(src.getName()), _Grade(src.getGrade())
 {
-	// if (this == nullptr)
-	// 	throw NullException();
+	if (this == nullptr)
+		throw NullException();
 }
 
 /*
@@ -46,8 +46,8 @@ Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat &				Bureaucrat::operator=( Bureaucrat const & rhs )
 {
-	// if (this == nullptr)
-	// 	throw NullException();
+	if (this == nullptr)
+		throw NullException();
 	if ( this != &rhs )
 	{
 		this->_Grade = rhs.getGrade();
@@ -86,22 +86,22 @@ const char * Bureaucrat::NullException::what(void) const throw()
 
 std::string 				Bureaucrat::getName(void) const 
 {
-	// if (this == nullptr)
-	// 	throw NullException();
+	if (this == nullptr)
+		throw NullException();
 	return (_Name);
 }
 
 int							Bureaucrat::getGrade(void) const
 {
-	// if (this == nullptr)
-	// 	throw NullException();
+	if (this == nullptr)
+		throw NullException();
 	return (_Grade);
 }
 
 void						Bureaucrat::incrementGrade(void)
 {
-	// if (this == nullptr)
-	// 	throw NullException();
+	if (this == nullptr)
+		throw NullException();
 	if (_Grade == HIGHEST_GRADE)
 		throw GradeTooHighException();
 	_Grade--;
@@ -109,8 +109,8 @@ void						Bureaucrat::incrementGrade(void)
 
 void						Bureaucrat::decrementGrade(void)
 {
-	// if (this == nullptr)
-	// 	throw NullException();
+	if (this == nullptr)
+		throw NullException();
 	if (_Grade == LOWEST_GRADE)
 		throw GradeTooLowException();
 	_Grade++;

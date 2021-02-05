@@ -1,9 +1,14 @@
-
-// check leaks
-
-// If it’s using a worse method, like if/elseif/elseif/else branchings,
-// or some other ugly stuff like this, it will not be accepted during the evaluation.
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/05 15:02:33 by gbroccol          #+#    #+#             */
+/*   Updated: 2021/02/05 15:02:47 by gbroccol         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "Intern.hpp"
 #include "Form.hpp"
@@ -17,8 +22,8 @@ int main(void)
 		Intern intern;
 		Form * form;
 		
-		form = intern.makeForm("shrubbery creation", "vogsphere");
-		
+		form = intern.makeForm("shrubbery creation", "Vogsphere");
+		std::cout << "\x1b[32m" << *form << "\x1b[0m" << std::endl;
 		delete form;
 	}
 	catch (std::exception & e)
@@ -33,8 +38,8 @@ int main(void)
 		Intern intern;
 		Form * form;
 		
-		form = intern.makeForm("robotomy request", "vogsphere");
-		
+		form = intern.makeForm("robotomy request", "Hitchhikers");
+		std::cout << "\x1b[32m" << *form << "\x1b[0m" << std::endl;
 		delete form;
 	}
 	catch (std::exception & e)
@@ -49,8 +54,8 @@ int main(void)
 		Intern intern;
 		Form * form;
 		
-		form = intern.makeForm("presidential pardon", "vogsphere");
-		
+		form = intern.makeForm("presidential pardon", "Fandom");
+		std::cout << "\x1b[32m" << *form << "\x1b[0m" << std::endl;
 		delete form;
 	}
 	catch (std::exception & e)
@@ -65,14 +70,14 @@ int main(void)
 		Intern intern;
 		Form * form;
 		
-		form = intern.makeForm("unknown form", "vogsphere");
-		
+		form = intern.makeForm("unknown form", "Other");
+		std::cout << "\x1b[32m" << *form << "\x1b[0m" << std::endl;
 		delete form;
 	}
 	catch (std::exception & e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-
+	getchar();
 	return 0;
 }

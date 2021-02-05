@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:36:39 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/04 15:59:41 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/05 13:15:15 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 Bureaucrat::Bureaucrat() {}
 
-Bureaucrat::Bureaucrat( std::string name, int grade) : _Name(name)
+Bureaucrat::Bureaucrat( std::string &name, int grade) : _Name(name)
 {
 	if (grade > LOWEST_GRADE)
 		throw GradeTooLowException();

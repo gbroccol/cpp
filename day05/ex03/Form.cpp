@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:43:51 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/04 19:26:45 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/05 15:03:07 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,12 @@ Form::Form(std::string name, int sign, int execute) : _Name(name), _SignGrade(si
 		throw GradeTooLowException();
 	else if (sign < HIGHEST_GRADE || execute < HIGHEST_GRADE)
 		throw GradeTooHighException();
-
-	std::cout << _Name << " created" << std::endl;
 }
 
 Form::Form( const Form & src ) : _Name(src.getName()), _SignGrade(src.getSignGrade()), _ExecuteGrade(src.getExecuteGrade()), _Value(src.getValue())
 {
-	// if (this == nullptr)
-	// 	throw NullException();
+	if (this == nullptr)
+		throw NullException();
 }
 
 /*
@@ -46,8 +44,8 @@ Form::~Form() {}
 
 Form &				Form::operator=( Form const & rhs )
 {
-	// if (this == nullptr)
-	// 	throw NullException();
+	if (this == nullptr)
+		throw NullException();
 	
 	if ( this != &rhs )
 		_Value = rhs.getValue();
@@ -58,17 +56,14 @@ std::ostream &			operator<<( std::ostream & o, Form const & i )
 {
 	if (i.getValue())
 	{
-		o << i.getName() << ", form is signed. ";
+		o << "Form's name is " << i.getName() << ", the form is signed. ";
 		o << "\x1b[32mValue to execute is " << i.getExecuteGrade() << "\x1b[0m" << std::endl;
 	}
 	else
 	{
-		o << i.getName() << ", form is not signed. ";
+		o << "Form's name is " << i.getName() << ", form is not signed. ";
 		o << "\x1b[32mValue to sign is " << i.getSignGrade() << "\x1b[0m" << std::endl;
 	}
-		
-	
-	
 	return o;
 }
 

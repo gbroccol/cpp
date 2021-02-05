@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 12:11:23 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/04 17:27:28 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/05 13:25:43 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int main(void)
 	std::cout << "\x1b[33;1m_________________________Test 1__________________________\x1b[0m" << std::endl;
 	try
 	{
-		Bureaucrat marvin("Marvin", -1);
+		std::string name = "Marvin";
+		Bureaucrat marvin(name, -1);
 	}
 	catch (std::exception & e)
 	{
@@ -25,7 +26,8 @@ int main(void)
 	}
 	try
 	{
-		Bureaucrat marvin("Marvin", 0);
+		std::string name = "Marvin";
+		Bureaucrat marvin(name, 0);
 	}
 	catch (std::exception & e)
 	{
@@ -33,7 +35,8 @@ int main(void)
 	}
 	try
 	{
-		Bureaucrat marvin("Marvin", 1);
+		std::string name = "Marvin";
+		Bureaucrat marvin(name, 1);
 	}
 	catch (std::exception & e)
 	{
@@ -41,7 +44,8 @@ int main(void)
 	}
 	try
 	{
-		Bureaucrat marvin("Marvin", 150);
+		std::string name = "Marvin";
+		Bureaucrat marvin(name, 150);
 	}
 	catch (std::exception & e)
 	{
@@ -49,7 +53,8 @@ int main(void)
 	}
 	try
 	{
-		Bureaucrat marvin("Marvin", 151);
+		std::string name = "Marvin";
+		Bureaucrat marvin(name, 151);
 	}
 	catch (std::exception & e)
 	{
@@ -58,7 +63,8 @@ int main(void)
 	getchar();
 	
 	std::cout << "\x1b[33;1m_________________________Test 2__________________________\x1b[0m" << std::endl;
-	Bureaucrat marvin("Marvin", 1);
+	std::string name = "Marvin";
+	Bureaucrat marvin(name, 1);
 	
 	try
 	{
@@ -72,7 +78,9 @@ int main(void)
 	getchar();
 
 	std::cout << "\x1b[33;1m_________________________Test 3__________________________\x1b[0m" << std::endl;
-	Bureaucrat arthur("Arthur", 150);
+	
+	std::string name2 = "Arthur";
+	Bureaucrat arthur(name2, 150);
 	try
 	{
 		std::cout << arthur;
@@ -94,7 +102,7 @@ int main(void)
 		
 		std::cout << arthur;
 		arthur.incrementGrade();
-		std::cout << arthur << std::endl;
+		std::cout << arthur;
 	}
 	catch (std::exception & e)
 	{

@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:50:15 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/01/29 15:50:16 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/05 14:21:06 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-
 class Intern
 {
 
@@ -33,13 +32,9 @@ class Intern
 
 		Intern &		operator=( Intern const & rhs );
 
-		Form *			makeForm(std::string form_name, std::string target);
-
-		int				getMyForms();
+		Form *			makeForm(std::string NameForm, std::string TargetForm);
 
 	private:
-
-		int			_MyForms;
 
 };
 

@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:36:39 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/04 15:42:36 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/05 13:15:09 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Bureaucrat
 {
 	public:
 	
-		Bureaucrat( std::string name, int grade );
+		Bureaucrat( std::string &name, int grade );
 		Bureaucrat( Bureaucrat const & src );
 		~Bureaucrat(void);
 

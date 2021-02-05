@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:49:04 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/04 19:42:43 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/05 13:31:49 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 
 PresidentialPardonForm::PresidentialPardonForm() {}
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialPardonForm", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form(target, 25, 5)
 {
 	_Target = target;
 }
 
 PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src ) : Form(src)
 {
-	// if (this == nullptr)
-	// 	throw NullException();
+	if (this == nullptr)
+		throw NullException();
 	_Target = src._Target;
 }
 
@@ -48,13 +48,6 @@ PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardo
 	}
 	return *this;
 }
-
-// std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i )
-// {
-// 	//o << "Value = " << i.getValue();
-// 	return o;
-// }
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
