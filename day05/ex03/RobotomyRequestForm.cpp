@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 15:48:01 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/05 13:33:58 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/05 15:19:27 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void					RobotomyRequestForm::execute(Bureaucrat const & executor) const
 		std::cout << this->_Target << " is successfully robotomized." << std::endl;
 	else
 		std::cout <<  "Robotomization of " << this->_Target << " is failed." << std::endl;
-	
 }
 
 /*
