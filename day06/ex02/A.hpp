@@ -16,21 +16,15 @@
 # include <iostream>
 # include <string>
 
-class A
+#include "Base.hpp"
+
+class A : public Base
 {
 
 	public:
 
-		A();
-		A( A const & src );
-		~A();
-
-		A &		operator=( A const & rhs );
-
-	private:
+		virtual ~A();
 
 };
-
-std::ostream &			operator<<( std::ostream & o, A const & i );
 
 #endif /* *************************************************************** A_H */

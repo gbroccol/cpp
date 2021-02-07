@@ -21,16 +21,8 @@ class Base
 
 	public:
 
-		Base();
-		Base( Base const & src );
-		~Base();
-
-		Base &		operator=( Base const & rhs );
-
-	private:
+		virtual ~Base();
 
 };
-
-std::ostream &			operator<<( std::ostream & o, Base const & i );
 
 #endif /* ************************************************************ BASE_H */

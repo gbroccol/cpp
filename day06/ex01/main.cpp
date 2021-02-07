@@ -10,16 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// Сериализация (в программировании) — процесс перевода какой-либо структуры данных в последовательность байтов.
-// Обратной к операции сериализации является операция десериализации (структуризации) —
-						// восстановление начального состояния структуры данных из битовой последовательности.
-
-// The serialized data is the concatenation of a random array of 8 alphanumerical characters,
-// a random integer and a second random array of 8 alphanumerical characters.
-// Feel free to use anything you like to generate the random values.
-
-// reinterpret_cast
-
 #include <iostream>
 
 struct				Data
@@ -29,9 +19,9 @@ struct				Data
 	std::string		s2;
 };
 
-void	serializeStr(char *data, int i) // change
+void	serializeStr(char *data, int i)
 {
-	std::string smb = "jfnvsjnfvjkanannanannfvnadjfvdfiodmfnaofnbaoifnboiadfb";
+	std::string smb = "!\"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
 	
 	std::cout << "Data " << i << ": ";
 	for (int i = 0; i < 8; i++)
@@ -53,7 +43,7 @@ void	serializeNmb(char *data, int i)
 	delete nmb;
 }
 
-void * serialize(void) //This function will return the address on the heap of a sequence of bytes that represent a piece of serialized data. 
+void * serialize(void)
 {
 	int		position = 0;
 	char *data = new char[sizeof(char) * 8 * 2 + sizeof(int)];
@@ -98,7 +88,7 @@ int	*deserializeNmb(char *str, int i)
 	
 }
 
-Data * deserialize(void * data) // This function will deserialize the raw data to a Data structure
+Data * deserialize(void * data)
 {
 	Data *deserializeData = new Data;
 	int		position = 0;
