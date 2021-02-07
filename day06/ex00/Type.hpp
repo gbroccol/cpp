@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 16:20:47 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/05 16:59:41 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/07 16:40:50 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <iostream>
 # include <string>
+# include <limits>
+# include <cmath>
+# include <iomanip>
 
 class Type
 {
@@ -25,27 +28,22 @@ class Type
 		Type( Type const & src );
 		~Type(void);
 
-		Type &		operator=( Type const & rhs );
-
-		void		convertToChar(void);
-		void		convertToInt(void);
-		void		convertToFloat(void);
-		void		convertToDouble(void);
-
-		char		getCharValue(void) const;
-		int			getIntValue(void) const;
-		float		getFloatValue(void) const;
-		double		getDoubleValue(void) const;
+		// Type &		operator=( Type const & rhs );
 
 	private:
 		
-		std::string		_Str;
-		char			_CharValue;
-		int				_IntValue;
+		int				_Sum;
 		float			_FloatValue;
 		double			_DoubleValue;
 
 		Type(void);
+
+		void			ToChar(void);
+		void			ToInt(void);
+		void			ToFloat(void);
+		void			ToDouble(void);
+
+		int				countPrecision(std::string str);
 
 };
 

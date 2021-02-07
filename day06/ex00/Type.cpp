@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 16:20:47 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/05 17:05:50 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/07 16:51:03 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,31 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Type::Type() {}
+Type::Type() : _DoubleValue(0) {}
 
-Type::Type(std::string str) : _Str(str), _CharValue('z'), _IntValue(-1), _FloatValue(-1.0), _DoubleValue(-1.0)
+Type::Type(std::string str) : _FloatValue(0),  _DoubleValue(0)
 {
-	convertToInt();
-	convertToFloat();
-	convertToFloat();
-	convertToChar();
+	if (str.length() == 1 && isdigit(str[0]) == 0)
+	{
+		_DoubleValue = static_cast <double>(str.c_str()[0]);
+	}
+	else
+	{
+		_FloatValue = std::stof(str);
+		_DoubleValue = std::stod(str);
+		_Sum = countPrecision(str);
+	}
 	
-	// std::cout << "STRING (TEST): " << str << std::endl;
-	std::cout << "char: " << _CharValue << std::endl;
-	std::cout << "int: " << _IntValue << std::endl;
-	std::cout << "float: " << _FloatValue << std::endl;
-	std::cout << "double: " << _DoubleValue << std::endl;
+	ToChar();
+	ToInt();
+	ToFloat();
+	ToDouble();
+
+	return ;
+	
 }
 
-Type::Type( const Type & src )
-{
-	*this = src;
-}
+Type::Type( const Type & src ) { *this = src; }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
@@ -47,54 +52,73 @@ Type::~Type() {}
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Type &				Type::operator=( Type const & rhs )
-{
-	(void)rhs;
-	return *this;
-}
+// Type &				Type::operator=( Type const & rhs )
+// {
+// 	(void)rhs; // change
+// 	return *this;
+// }
 
-std::ostream &			operator<<( std::ostream & o, Type const & i ) // change
-{
-	o << "String = " << i.getCharValue();
-	return o;
-}
-
-
-/*
-** --------------------------------- METHODS ----------------------------------
-*/
-
-void					Type::convertToChar(void)
-{
-	_CharValue = static_cast <char> (_IntValue);
-}
-
-void					Type::convertToInt(void)
-{
-	
-	_IntValue = std::stoi( _Str );
-	
-}
-
-void					Type::convertToFloat(void)
-{
-	_FloatValue = static_cast <float> (_IntValue);
-}
-
-void					Type::convertToDouble(void)
-{
-	_DoubleValue = static_cast <double> (_IntValue);
-}
+// std::ostream &			operator<<( std::ostream & o, Type const & i ) // change
+// {
+// 	o << "String = " << i.getCharValue();
+// 	return o;
+// }
 
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-char					Type::getCharValue(void) const { return(_CharValue); }
-int						Type::getIntValue(void) const { return(_IntValue); }
-float					Type::getFloatValue(void) const { return(_FloatValue); }
-double					Type::getDoubleValue(void) const { return(_DoubleValue); }
+int				Type::countPrecision(std::string str)
+{
+	int i = 0;
+
+	while (str[i] != '\0')
+	{
+		if (str[i] == '.')
+		{
+			i++;
+			int sum = 0;
+			while (str[i + sum] != '\0' && isdigit(str[i + sum]))
+				sum++;
+			return (sum == 0 ? 1 : sum);
+		}
+		i++;
+	}
+	return (1);
+}
+
+void					Type::ToChar(void)
+{
+	if (isnan(_DoubleValue) || isinf(_DoubleValue))
+		std::cout << "char: impossible" << std::endl;
+	else if (_DoubleValue > 255 || _DoubleValue < 0)
+		std::cout << "char: impossible" << std::endl;
+	else if (_DoubleValue >= 0 && _DoubleValue <= 32)
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: '" << static_cast <char> (_DoubleValue) << "'" << std::endl;
+}
+
+void					Type::ToInt(void)
+{
+	if (isnan(_DoubleValue) || isinf(_DoubleValue))
+		std::cout << "int: impossible" << std::endl;
+	else if (_DoubleValue > INT_MAX || _DoubleValue < INT_MIN)
+		std::cout << "int: Non displayable" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(_DoubleValue) << std::endl;
+}
+
+void					Type::ToFloat(void)
+{
+	std::cout << "float: " << std::fixed<<std::setprecision(_Sum) << _FloatValue << "f" << std::endl;
+}
+
+void					Type::ToDouble(void)
+{
+	std::cout << "double: " << std::fixed<<std::setprecision(_Sum) << _DoubleValue << std::endl;
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
