@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/08 14:50:22 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/08 14:52:46 by gbroccol         ###   ########.fr       */
+/*   Created: 2021/02/08 14:56:20 by gbroccol          #+#    #+#             */
+/*   Updated: 2021/02/08 15:06:08 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class A : public Base
 
 		A();
 		// A( A const & src );
-		virtual ~A();
+		~A();
 
 		// A &		operator=( A const & rhs );
 

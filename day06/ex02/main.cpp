@@ -5,34 +5,49 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/05 20:14:36 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/08 14:53:50 by gbroccol         ###   ########.fr       */
+/*   Created: 2021/02/08 14:56:12 by gbroccol          #+#    #+#             */
+/*   Updated: 2021/02/08 15:13:21 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Base.hpp"
-# include "A.hpp"
-# include "B.hpp"
-# include "C.hpp"
+#include <iostream>
+
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
+
+#include "Base.hpp"
 
 Base * generate(void)
 {
-	srand((unsigned) time(0));
-	int result = 1 + (rand() % 3);
+	Base *result;
 
-	switch (result)
+	srand((unsigned) time(0));
+	int i = 1 + (rand() % 3);
+
+	switch (i)
 	{
 		case 1:
+		{
 			std::cout << "You created object A" << std::endl;
-			return new A;
-
+			A *a = new A;
+			result = a;
+			return result;
+		}
 		case 2:
+		{
 			std::cout << "You created object B" << std::endl;
-			return new B;
-
+			B *b = new B;
+			result = b;
+			return result;
+		}
 		case 3:
+		{
 			std::cout << "You created object C" << std::endl;
-			return new C;
+			C *c = new C;
+			result = c;
+			return result;
+		}
 	}
 	return  (NULL);
 }

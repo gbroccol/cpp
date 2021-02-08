@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/05 20:13:29 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/05 20:13:30 by gbroccol         ###   ########.fr       */
+/*   Created: 2021/02/08 15:07:40 by gbroccol          #+#    #+#             */
+/*   Updated: 2021/02/08 15:08:34 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,16 @@ class C : public Base
 
 	public:
 
-		virtual ~C();
+		C();
+		// C( C const & src );
+		~C();
+
+		// C &		operator=( C const & rhs );
+
+	private:
 
 };
+
+// std::ostream &			operator<<( std::ostream & o, C const & i );
+
 #endif /* *************************************************************** C_H */
