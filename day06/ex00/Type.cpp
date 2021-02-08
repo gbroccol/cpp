@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 16:20:47 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/07 16:51:03 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/08 13:02:33 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,27 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Type::Type() : _DoubleValue(0) {}
+Type::Type() {}
 
-Type::Type(std::string str) : _FloatValue(0),  _DoubleValue(0)
+Type::Type(std::string str)
 {
+	int				Sum = 1;
+	double			DoubleValue = 0;
+	
 	if (str.length() == 1 && isdigit(str[0]) == 0)
 	{
-		_DoubleValue = static_cast <double>(str.c_str()[0]);
+		DoubleValue = static_cast <double>(str.c_str()[0]);
 	}
 	else
 	{
-		_FloatValue = std::stof(str);
-		_DoubleValue = std::stod(str);
-		_Sum = countPrecision(str);
+		DoubleValue = std::stod(str);
+		Sum = countPrecision(str);
 	}
 	
-	ToChar();
-	ToInt();
-	ToFloat();
-	ToDouble();
+	ToChar(DoubleValue);
+	ToInt(DoubleValue);
+	ToFloat(DoubleValue, Sum);
+	ToDouble(DoubleValue, Sum);
 
 	return ;
 	
@@ -52,18 +54,11 @@ Type::~Type() {}
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-// Type &				Type::operator=( Type const & rhs )
-// {
-// 	(void)rhs; // change
-// 	return *this;
-// }
-
-// std::ostream &			operator<<( std::ostream & o, Type const & i ) // change
-// {
-// 	o << "String = " << i.getCharValue();
-// 	return o;
-// }
-
+Type &				Type::operator=( Type const & rhs )
+{
+	(void)rhs;
+	return *this;
+}
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -88,41 +83,35 @@ int				Type::countPrecision(std::string str)
 	return (1);
 }
 
-void					Type::ToChar(void)
+void					Type::ToChar(double DoubleValue)
 {
-	if (isnan(_DoubleValue) || isinf(_DoubleValue))
+	if (isnan(DoubleValue) || isinf(DoubleValue))
 		std::cout << "char: impossible" << std::endl;
-	else if (_DoubleValue > 255 || _DoubleValue < 0)
+	else if (DoubleValue > 255 || DoubleValue < 0)
 		std::cout << "char: impossible" << std::endl;
-	else if (_DoubleValue >= 0 && _DoubleValue <= 32)
+	else if (DoubleValue >= 0 && DoubleValue <= 32)
 		std::cout << "char: Non displayable" << std::endl;
 	else
-		std::cout << "char: '" << static_cast <char> (_DoubleValue) << "'" << std::endl;
+		std::cout << "char: '" << static_cast <char> (DoubleValue) << "'" << std::endl;
 }
 
-void					Type::ToInt(void)
+void					Type::ToInt(double DoubleValue)
 {
-	if (isnan(_DoubleValue) || isinf(_DoubleValue))
+	if (isnan(DoubleValue) || isinf(DoubleValue))
 		std::cout << "int: impossible" << std::endl;
-	else if (_DoubleValue > INT_MAX || _DoubleValue < INT_MIN)
+	else if (DoubleValue > INT_MAX || DoubleValue < INT_MIN)
 		std::cout << "int: Non displayable" << std::endl;
 	else
-		std::cout << "int: " << static_cast<int>(_DoubleValue) << std::endl;
+		std::cout << "int: " << static_cast<int>(DoubleValue) << std::endl;
 }
 
-void					Type::ToFloat(void)
+void					Type::ToFloat(double DoubleValue, int Sum)
 {
-	std::cout << "float: " << std::fixed<<std::setprecision(_Sum) << _FloatValue << "f" << std::endl;
+	float FloatValue = static_cast <float>(DoubleValue);
+	std::cout << "float: " << std::fixed<<std::setprecision(Sum) << FloatValue << "f" << std::endl;
 }
 
-void					Type::ToDouble(void)
+void					Type::ToDouble(double DoubleValue, int Sum)
 {
-	std::cout << "double: " << std::fixed<<std::setprecision(_Sum) << _DoubleValue << std::endl;
+	std::cout << "double: " << std::fixed<<std::setprecision(Sum) << DoubleValue << std::endl;
 }
-
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
-
-/* ************************************************************************** */

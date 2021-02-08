@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 20:14:36 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/07 18:54:38 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/08 14:44:32 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,46 +63,50 @@ void * serialize(void)
 	return (reinterpret_cast <void *> (data));
 }
 
-char *		deserializeStr(char *str, int i) // change
+std::string		deserializeStr(char *str)
 {
 	char *result= new char[8];
-	
-	std::cout << "Data " << i << ": ";
+
 	for (int i = 0; i < 8; i++)
 		result[i] = str[i];
-	std::cout << result << std::endl;
-	return (result);
+	std::string ret(result);
+
+	delete [] result;
+	
+	return (ret);
 }
 
-int	*deserializeNmb(char *str, int i)
+int	deserializeNmb(char *str)
 {
-	int		*nmb = new int;
+	int		*nmb;
 	char	*tmp = new char [4];
+	int		ret;
 	
 	for (unsigned long int i = 0; i < sizeof(int); i++)
 		tmp[i] = str[i];
 	nmb = reinterpret_cast <int *> (tmp);
-	// delete nmb;
-	std::cout << "Data " << i << ": " << *nmb << std::endl;
-	return (nmb);
-	
+	ret = *nmb;
+	delete nmb;
+	return (ret);
 }
 
 Data * deserialize(void * data)
 {
-	Data *deserializeData = new Data;
+	Data	*deserializeData = new Data;
 	int		position = 0;
-	char *str = reinterpret_cast <char *> (data);
+	char	*str = reinterpret_cast <char *> (data);
 
 	std::cout << "\x1b[34m" << std::endl;
-	deserializeData->s1 = deserializeStr(&str[position], 0);
+	deserializeData->s1 = deserializeStr(&str[position]);
 	position += 8;
-	deserializeData->n = (*deserializeNmb(&str[position], 1));
 
-
+	deserializeData->n = deserializeNmb(&str[position]);
 	position += 4;
-	deserializeData->s2 = deserializeStr(&str[position], 2);
+
+	deserializeData->s2 = deserializeStr(&str[position]);
+	position += 8;
 	std::cout << "\x1b[0m" << std::endl;
+
 	return (deserializeData);
 }
 
@@ -110,9 +114,13 @@ int main()
 {
 	void *serializeData;
 	serializeData = serialize();
-	
+
 	Data *deserializeData;
 	deserializeData = deserialize(serializeData);
 
+	std::cout << "Data 0: " << deserializeData->s1 << std::endl;
+	std::cout << "Data 1: " << deserializeData->n << std::endl;
+	std::cout << "Data 2: " << deserializeData->s2 << std::endl;
+	delete deserializeData;
     return (0);
 }

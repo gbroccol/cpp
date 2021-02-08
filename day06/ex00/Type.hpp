@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 16:20:47 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/07 16:40:50 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/08 13:00:52 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,16 @@ class Type
 		Type( Type const & src );
 		~Type(void);
 
-		// Type &		operator=( Type const & rhs );
+		Type &		operator=( Type const & rhs );
 
 	private:
-		
-		int				_Sum;
-		float			_FloatValue;
-		double			_DoubleValue;
 
 		Type(void);
 
-		void			ToChar(void);
-		void			ToInt(void);
-		void			ToFloat(void);
-		void			ToDouble(void);
+		void			ToChar(double DoubleValue);
+		void			ToInt(double DoubleValue);
+		void			ToFloat(double DoubleValue, int Sum);
+		void			ToDouble(double DoubleValue, int Sum);
 
 		int				countPrecision(std::string str);
 
