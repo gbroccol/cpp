@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 14:56:12 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/08 15:13:21 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/09 14:20:09 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,60 @@ void identify_from_pointer(Base * p)
 		std::cout << "It is object B" << std::endl;
 	else if (dynamic_cast< C *> (p))
 		std::cout << "It is object C" << std::endl;
+	else
+		std::cout << "NO MATCH" << std::endl;
 }
 
 void identify_from_reference( Base & p)
 {
-	if (dynamic_cast< A *> (&p))
-		std::cout << "It is object A" << std::endl;
-	else if (dynamic_cast< B *> (&p))
-		std::cout << "It is object B" << std::endl;
-	else if (dynamic_cast< C *> (&p))
-		std::cout << "It is object C" << std::endl;
+	if (&p == nullptr)
+	{
+		std::cout << "NO MATCH" << std::endl;
+		return ;
+	}
+
+	try
+	{
+		A a = dynamic_cast< A &> (p);
+		std::cout << "It is object " << a.getType() << std::endl;
+	}
+	catch (const std::exception & e)
+	{
+	}
+	try
+	{
+		B b = dynamic_cast< B &> (p);
+		std::cout << "It is object " << b.getType() << std::endl;
+	}
+	catch (const std::exception & e)
+	{
+	}
+	try
+	{
+		C c = dynamic_cast< C &> (p);
+		std::cout << "It is object " << c.getType() << std::endl;
+	}
+	catch (const std::exception & e)
+	{
+	}
 }
 
 int main()
 {
+	std::cout << "\x1b[32m" << std::endl;
+	
 	Base *classBase = generate();
 	identify_from_pointer(classBase);
 	identify_from_reference(*classBase);
+	std::cout << std::endl;
+
+	Base *classBase2 = NULL;
+	identify_from_pointer(classBase2);
+	identify_from_reference(*classBase2);
+	std::cout << std::endl;
+	
+	Base *classBase3 = nullptr;
+	identify_from_pointer(classBase3);
+	identify_from_reference(*classBase3);
+	std::cout << "\x1b[0m" << std::endl;
 }

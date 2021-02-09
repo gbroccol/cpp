@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 16:20:47 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/08 13:02:33 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/09 14:29:27 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,10 @@ void					Type::ToChar(double DoubleValue)
 {
 	if (isnan(DoubleValue) || isinf(DoubleValue))
 		std::cout << "char: impossible" << std::endl;
-	else if (DoubleValue > 255 || DoubleValue < 0)
+	else if (DoubleValue > 127 || DoubleValue < 0)
 		std::cout << "char: impossible" << std::endl;
+	else if (DoubleValue == 127)
+		std::cout << "char: Non displayable" << std::endl;
 	else if (DoubleValue >= 0 && DoubleValue <= 32)
 		std::cout << "char: Non displayable" << std::endl;
 	else

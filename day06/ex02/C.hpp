@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 15:07:40 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/08 15:08:34 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/09 13:53:33 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class C : public Base
 		~C();
 
 		// C &		operator=( C const & rhs );
+
+		std::string			getType(void);
 
 	private:
 
