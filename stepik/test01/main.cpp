@@ -24,16 +24,11 @@ size_t max_increasing_len(It beginIt, It endIt)
 	size_t 	max = 1;
 	
 	auto nx = std::next(beginIt, 0);
-	
-	if (beginIt == endIt)
-	{
-		return 0;
-	}
 	beginIt++;
 		
 	if (beginIt == endIt)
 	{
-		return 1;
+		return 0;
 	}
 		for ( ; beginIt != endIt; ++beginIt)
 		{
@@ -98,16 +93,9 @@ int main()
 	std::list<std::string> const l7 = {"aaaa", "b", "c", "d"};
     int len7 = max_increasing_len(l7.begin(), l7.end());
     if(len7 == 4)
-		std::cout << "7 TRUE" << std::endl;
+		std::cout << "6 TRUE" << std::endl;
     else
-		std::cout << "7 FALSE. Ожидается 1, получено " << len7 << std::endl;
-
-	std::list<int> const l8 = {1};
-    int len8 = max_increasing_len(l8.begin(), l8.end());
-    if(len8 == 1)
-		std::cout << "8 TRUE" << std::endl;
-    else
-		std::cout << "8 FALSE. Ожидается 1, получено " << len8 << std::endl;
+		std::cout << "6 FALSE. Ожидается 1, получено " << len7 << std::endl;
 
     return 0;
 };
