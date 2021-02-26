@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/25 16:27:25 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/25 16:56:26 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/26 12:51:25 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,45 +15,38 @@
 
 # include <iostream>
 # include <string>
-# include <stack>
-// # include <>
+# include <stack>		// adapter	LIFO
+// Container c			// the underlying container (protected member object)
 
-// class MutantStack
-// {
-
-// 	public:
-
-// 		MutantStack();
-// 		MutantStack( MutantStack const & src );
-// 		~MutantStack();
-
-// 		MutantStack &		operator=( MutantStack const & rhs );
-
-// 	private:
-
-// };
-
-// std::ostream &			operator<<( std::ostream & o, MutantStack const & i );
-
+# include <vector>		// container
+# include <list>		// container
+# include <deque>		// container
 
 template <typename T>
-class MutantStack: public std::stack<T>
+
+class MutantStack : public std::stack<T>
 {
 	public:
-		typedef typename std::stack<T>::container_type::iterator iterator;
-		MutantStack(){return ;}
-		MutantStack( MutantStack<T> const & src ){*this = src;}
-		~MutantStack(){return;}
+		
+		MutantStack() : std::stack<T>() {}
+		MutantStack( MutantStack<T> const & src ) : std::stack<T>(src) {}
+		
+		~MutantStack() {}
+		
 		MutantStack &		operator=( MutantStack const & rhs )
 		{
-			this = rhs;
+			if (this != &rhs)
+				this->c = rhs.c;
 			return *this;
 		}
-		iterator begin(){return this->c.begin();}
-		iterator end(){return this->c.end();}
+		
+		typedef typename std::stack<T>::container_type::iterator iterator;
+		iterator begin() {return this->c.begin();}
+		iterator end() {return this->c.end();}
 		
 	private:
 };
 
+// std::ostream &			operator<<( std::ostream & o, MutantStack const & i );
 
 #endif /* ***************************************************** MUTANTSTACK_H */
