@@ -6,7 +6,7 @@
 /*   By: gbroccol <gbroccol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/25 11:03:09 by gbroccol          #+#    #+#             */
-/*   Updated: 2021/02/25 16:22:02 by gbroccol         ###   ########.fr       */
+/*   Updated: 2021/02/26 12:55:52 by gbroccol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,6 @@ int								Span::shortestSpan(void)
 	
 	int pre = *start;
 	start++;
-
-	// if (finish == start)
-	// 	return (0);
 
 	int min = std::numeric_limits<int>::max();
 
