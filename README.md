@@ -1,6 +1,6 @@
 # CPP_Modules (project 2021) 
 
-## 💥 CPP_Module_00
+## CPP_Module_00
 
 ### Task lists:
 - [x] ex00
@@ -51,7 +51,7 @@
 [Operators overload and overload function](https://www.tutorialspoint.com/cplusplus/cpp_overloading.htm)  
 [Canonical classes](https://github.com/markveligod/cpp_copliens_form)  
 
-## 💥 CPP_Module_03
+## CPP_Module_03
 ### Task lists:
 - [x] ex00
 - [x] ex01
